@@ -18,3 +18,5 @@ Use for (用于)——
 
 * `SilverlightApplication1`: . Not allow unsafe.
 
+#### Xna4.0
+
