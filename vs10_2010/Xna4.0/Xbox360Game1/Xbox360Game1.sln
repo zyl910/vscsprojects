@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xbox360Game1", "Xbox360Game1\Xbox360Game1\Xbox360Game1.csproj", "{170DDFD1-9BF3-47BD-8002-44B2DABE56BD}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Xbox360Game1Content", "Xbox360Game1\Xbox360Game1Content\Xbox360Game1Content.contentproj", "{873CB84D-E0AA-4EC7-AD49-FA9369A2CF13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Xbox 360 = Debug|Xbox 360
+		Release|Xbox 360 = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{170DDFD1-9BF3-47BD-8002-44B2DABE56BD}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{170DDFD1-9BF3-47BD-8002-44B2DABE56BD}.Debug|Xbox 360.Build.0 = Debug|Xbox 360
+		{170DDFD1-9BF3-47BD-8002-44B2DABE56BD}.Debug|Xbox 360.Deploy.0 = Debug|Xbox 360
+		{170DDFD1-9BF3-47BD-8002-44B2DABE56BD}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+		{170DDFD1-9BF3-47BD-8002-44B2DABE56BD}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{170DDFD1-9BF3-47BD-8002-44B2DABE56BD}.Release|Xbox 360.Deploy.0 = Release|Xbox 360
+		{873CB84D-E0AA-4EC7-AD49-FA9369A2CF13}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{873CB84D-E0AA-4EC7-AD49-FA9369A2CF13}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

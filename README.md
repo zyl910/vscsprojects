@@ -20,3 +20,5 @@ Use for (用于)——
 
 #### Xna4.0
 
+* `Xbox360Game1`: `XBOX;XBOX360`. Allow unsafe.
+
