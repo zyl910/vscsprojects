@@ -14,7 +14,7 @@ Use for (用于)——
 
 * `ClassLibrary1`: Allow unsafe. `C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll`, `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Core.dll`
 * `ConsoleApplication1`: Allow unsafe. `C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll`, `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Core.dll`
-* `WindowsFormsApplication1`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll`
+* `WindowsFormsApplication1`: Allow unsafe. `C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll`, `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Core.dll`
 * `WpfApplication1`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll`
 
 ### vs10_2010
