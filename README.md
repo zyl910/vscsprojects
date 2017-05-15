@@ -8,6 +8,20 @@ Use for (用于)——
 
 ## VS version
 
+### vs08_2005
+
+#### SmartDevice
+
+##### PocketPC
+
+* `DeviceApplication1`: `PocketPC`, Allow unsafe. `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\mscorlib.dll`
+
+
+##### Smartphone
+
+##### WindowsCE
+
+
 ### vs09_2008
 
 #### Windows
