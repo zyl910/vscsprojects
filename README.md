@@ -17,8 +17,10 @@ Use for (用于)——
 * `DeviceApplication1`: `PocketPC`, Allow unsafe. `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\mscorlib.dll`
 * `ClassLibrary1`: `PocketPC`, Allow unsafe. `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\mscorlib.dll`
 
-
 ##### Smartphone
+
+* `DeviceApplication1`: `Smartphone`, Allow unsafe. `C:\VS2005\SmartDevices\SDK\CompactFramework\2.0\v1.0\WindowsCE\mscorlib.dll`
+* `ClassLibrary1`: `Smartphone`, Allow unsafe. `C:\VS2005\SmartDevices\SDK\CompactFramework\2.0\v1.0\WindowsCE\mscorlib.dll`
 
 ##### WindowsCE
 
