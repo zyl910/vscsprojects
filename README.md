@@ -39,7 +39,7 @@ Use for (用于)——
 #### Windows
 
 * `PortableClassLibrary1`: Profile1, .NET Framework 4, Silverlight 4, Windows Phone 7, Windows Store Apps, Xbox 360. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile1\mscorlib.dll`
-* `PortableClassLibrary_unsafe`: Profile5, .NET Framework 4, Windows Store Apps. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile5\mscorlib.dll`
+* `PortableClassLibrary_unsafe`: Profile5, .NET Framework 4, Windows Store Apps. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile5\mscorlib.dll`
 * `ClassLibrary1`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll`
 * `ConsoleApplication1`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll`
 * `WindowsFormsApplication1`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll`
@@ -63,19 +63,26 @@ Use for (用于)——
 #### Windows
 
 * `PortableClassLibrary1`: Profile344, .NET Framework 4.5, Silverlight 5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8, Xamarin. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile344\mscorlib.dll`
-* `PortableClassLibrary_unsafe`: Profile259, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8, Xamarin. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\mscorlib.dll`
+* `PortableClassLibrary_unsafe`: Profile259, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8, Xamarin. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\mscorlib.dll`
 
 ### vs12_2013
 
 #### Windows
 
 * `PortableClassLibrary1`: Profile344, .NET Framework 4.5, Silverlight 5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8, Xamarin. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\Profile344\mscorlib.dll`
-* `PortableClassLibrary_unsafe`: Profile151, .NET Framework 4.5.1, Windows 8.1, Windows Phone 8.1, Xamarin. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.6\Profile\Profile151\mscorlib.dll`
+* `PortableClassLibrary_unsafe`: Profile151, .NET Framework 4.5.1, Windows 8.1, Windows Phone 8.1, Xamarin. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.6\Profile\Profile151\mscorlib.dll`
 
 ### vs14_2015
 
 #### Windows
 
 * `PortableClassLibrary1`: Profile259, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8, Xamarin, ASP.NET Core 1.0. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\mscorlib.dll`
-* `PortableClassLibrary_unsafe`: Profile151, .NET Framework 4.5.1, Windows 8.1, Windows Phone 8.1, Xamarin. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.6\Profile\Profile151\mscorlib.dll`
+* `PortableClassLibrary_unsafe`: Profile151, .NET Framework 4.5.1, Windows 8.1, Windows Phone 8.1, Xamarin. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\dotnet\mscorlib.dll`
+
+### vs15_2017
+
+#### Windows
+
+* `PortableClassLibrary1`: Profile7, .NET Framework 4.5, Windows 8, ASP.NET Core 1.0, Xamarin. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\mscorlib.dll`
+* `PortableClassLibrary_unsafe`: Profile151, .NET Framework 4.5.1, Windows 8.1, Windows Phone 8.1, Xamarin. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\dotnet\mscorlib.dll`
 
