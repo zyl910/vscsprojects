@@ -88,7 +88,8 @@ Use for (用于)——
 
 #### .NET Core
 
-* `ConsoleApp1`: .NETCoreApp 1.1. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\system.console\4.3.0\ref\netstandard1.3\System.Console.dll`
+* `ConsoleApp1`: .NETCoreApp 1.1 Console. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\system.console\4.3.0\ref\netstandard1.3\System.Console.dll`
+* `ClassLibrary1`: .NETCoreApp 1.1 ClassLibrary. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\system.console\4.3.0\ref\netstandard1.3\System.Console.dll`
 
 #### Xamarin
 
