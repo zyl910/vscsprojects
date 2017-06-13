@@ -110,5 +110,6 @@ Use for (用于)——
 
 * `TVApp1`: tvOS App. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.TVOS\v1.0\System.Core.dll`
 * `ClassLibrary1`: tvOS ClassLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.TVOS\v1.0\System.dll`
+* `BindingsLibrary1`: tvOS BindingLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.TVOS\v1.0\System.dll`
 
 
