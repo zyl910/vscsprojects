@@ -100,4 +100,9 @@ Use for (用于)——
 * `ClassLibrary1`: Android ClassLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\mscorlib.dll`
 * `BindingLibrary1`: Android BindingLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\System.Core.dll`
 
+#### Xamarin
+
+* `App1`: iOS App. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.Core.dll`
+* `ClassLibrary1`: iOS ClassLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.dll`
+
 
