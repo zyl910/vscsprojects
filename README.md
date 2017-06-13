@@ -94,16 +94,20 @@ Use for (用于)——
 * `App_Local_Pcl`: Local, Pcl Project(Profile259, portable45-net45+win8+wp8+wpa81), Blank app. Android, iOS, Uwp. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\mscorlib.dll`, `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\System.dll`, `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.dll`, `C:\Program Files (x86)\Windows Kits\10\UnionMetadata\facade\Windows.winmd`
 * `ClassLibrary1`: Profile111, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Xamarin, ASP.NET Core 1.0. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile111\mscorlib.dll`
 
-#### Xamarin
+#### Android
 
 * `App1`: Android App. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\mscorlib.dll`
 * `ClassLibrary1`: Android ClassLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\mscorlib.dll`
 * `BindingLibrary1`: Android BindingLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\System.Core.dll`
 
-#### Xamarin
+#### iOS
 
 * `App1`: iOS App. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.Core.dll`
 * `ClassLibrary1`: iOS ClassLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.dll`
 * `NativeLibrary1`: iOS BindingLibrary. Allow unsafe.
+
+#### tvOS
+
+* `TVApp1`: tvOS App. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.TVOS\v1.0\System.Core.dll`
 
 
