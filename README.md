@@ -86,6 +86,10 @@ Use for (用于)——
 * `PortableClassLibrary1`: Profile7, .NET Framework 4.5, Windows 8, ASP.NET Core 1.0, Xamarin. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile7\mscorlib.dll`
 * `PortableClassLibrary_unsafe`: v5, .NET Framework 4.6, Windows 10, ASP.NET Core 1.0. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\dotnet\mscorlib.dll`
 
+#### .NET Core
+
+* `ConsoleApp1`: .NETCoreApp 1.1. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\system.console\4.3.0\ref\netstandard1.3\System.Console.dll`
+
 #### Xamarin
 
 * `App_Xamarin_Shared`: Xamarin.Forms, Shared Project, Blank app. Android, iOS, Uwp. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\mscorlib.dll`, `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.dll`, `C:\Program Files (x86)\Windows Kits\10\UnionMetadata\facade\Windows.winmd`
