@@ -95,6 +95,10 @@ Use for (用于)——
 * `ConsoleApp1`: .NETCoreApp 1.1 Console. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\system.console\4.3.0\ref\netstandard1.3\System.Console.dll`
 * `ClassLibrary1`: .NETCoreApp 1.1 ClassLibrary. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\system.console\4.3.0\ref\netstandard1.3\System.Console.dll`
 
+#### Web
+
+* `ConsoleApp1`: ASP.NET Core Web Application, .NET Core 1.1. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\microsoft.netcore.app\1.1.2`
+
 #### Xamarin
 
 * `App_Xamarin_Shared`: Xamarin.Forms, Shared Project, Blank app. Android, iOS, Uwp. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\mscorlib.dll`, `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.dll`, `C:\Program Files (x86)\Windows Kits\10\UnionMetadata\facade\Windows.winmd`
