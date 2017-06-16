@@ -81,7 +81,8 @@ Use for (用于)——
 
 #### NStd
 
-* `ClassLibrary1`: .NET Standard 1.0 ClassLibrary. Not allow unsafe by 1.0 , allow unsafe by 1.1+ . `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.1\ref\netstandard1.0\mscorlib.dll`
+* `ClassLibrary1`: .NET Standard 1.0 ClassLibrary. Not allow unsafe by 1.0 . `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.1\ref\netstandard1.0\mscorlib.dll`
+* `ClassLibrary11`: .NET Standard 1.1 ClassLibrary. Allow unsafe by 1.1+ . `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.1\ref\netstandard1.0\mscorlib.dll`
 
 ### vs15_2017
 
