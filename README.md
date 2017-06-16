@@ -79,6 +79,10 @@ Use for (用于)——
 * `PortableClassLibrary1`: Profile259, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8, Xamarin, ASP.NET Core 1.0. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\mscorlib.dll`
 * `PortableClassLibrary_unsafe`: v5, .NET Framework 4.6, Windows 10, ASP.NET Core 1.0. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\dotnet\mscorlib.dll`
 
+#### NStd
+
+* `ClassLibrary1`: .NET Standard 1.0 ClassLibrary. Not allow unsafe by 1.0 , allow unsafe by 1.1+ . `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.1\ref\netstandard1.0\mscorlib.dll`
+
 ### vs15_2017
 
 #### Windows
@@ -86,7 +90,7 @@ Use for (用于)——
 * `PortableClassLibrary1`: Profile7, .NET Framework 4.5, Windows 8, ASP.NET Core 1.0, Xamarin. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile7\mscorlib.dll`
 * `PortableClassLibrary_unsafe`: v5, .NET Framework 4.6, Windows 10, ASP.NET Core 1.0. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\dotnet\mscorlib.dll`
 
-#### .NET Std
+#### NStd
 
 * `ClassLibrary1`: .NET Standard 1.0 ClassLibrary. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\netstandard.library\1.6.1`
 
