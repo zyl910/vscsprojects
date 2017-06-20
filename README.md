@@ -84,6 +84,10 @@ Use for (用于)——
 * `ClassLibrary1`: .NET Standard 1.0 ClassLibrary. Not allow unsafe by 1.0 . `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.1\ref\netstandard1.0\mscorlib.dll`
 * `ClassLibrary11`: .NET Standard 1.1 ClassLibrary. Allow unsafe by 1.1+ . `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.1\ref\netstandard1.0\mscorlib.dll`
 
+#### NCore
+
+* `ConsoleApp1`: .NETCoreApp 1.0 Console. Not allow unsafe. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
+
 #### Silverlight
 
 * `ClassLibrary1`: Silverlight 5. Not allow unsafe by 1.0 . `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
