@@ -87,7 +87,11 @@ Use for (用于)——
 #### NCore
 
 * `ConsoleApp1`: .NETCoreApp 1.0 Console. Not allow unsafe. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
-* `ClassLibrary1`: .NETCoreApp 1.0 ClassLibrary. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
+* `ClassLibrary1`: .NETCoreApp 1.0 ClassLibrary. Not allow unsafe. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
+
+#### Web
+
+* `WebApplication1`: ASP.NET Core Web Application, .NET Core 1.0. Not allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.App\1.0.1`
 
 #### Silverlight
 
