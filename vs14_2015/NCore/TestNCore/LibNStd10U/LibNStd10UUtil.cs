@@ -1,24 +1,24 @@
-﻿using LibPcl259;
+﻿using LibPcl111;
 using LibShared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LibPcl111 {
+namespace LibNStd10U {
 	/// <summary>
-	/// Portable Class Library Profile111 util (可移植库111工具).
+	/// Class Library (.NET Standard) 1.0 unsafe util (.NET Standard类库 1.0 非安全工具).
 	/// </summary>
-	public class LibPcl111Util {
+	public class LibNStd10UUtil {
 		/// <summary>
 		/// 输出信息.
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
 		/// <param name="onproject">On project (所处项目)</param>
 		public static void OutputInfo(StringBuilder sb, string onproject) {
-			string myproject = "LibPcl111 on " + onproject;
+			string myproject = "LibNStd10U on " + onproject;
 			LibSharedUtil.OutputCommon(sb, myproject);
-			LibPcl259Util.OutputInfo(sb, myproject);
+			LibPcl111Util.OutputInfo(sb, myproject);
 		}
 	}
 }

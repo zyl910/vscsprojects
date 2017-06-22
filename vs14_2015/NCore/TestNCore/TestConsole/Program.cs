@@ -1,4 +1,5 @@
 ﻿using LibNStd10;
+using LibNStd10U;
 using LibPcl111;
 using LibPcl259;
 using LibShared;
@@ -17,6 +18,7 @@ namespace TestConsole {
 			LibNStd10Util.OutputInfo(sb, myproject);
 			LibPcl259Util.OutputInfo(sb, myproject);
 			LibPcl111Util.OutputInfo(sb, myproject);
+			LibNStd10UUtil.OutputInfo(sb, myproject);
 			// show.
 			Console.WriteLine(sb.ToString());
 		}
