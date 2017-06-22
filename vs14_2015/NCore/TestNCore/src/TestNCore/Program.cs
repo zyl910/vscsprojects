@@ -1,5 +1,6 @@
 ﻿using LibNStd10;
 using LibNStd10U;
+using LibShared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace TestNCore
         {
 			const string myproject = "TestNCore";
 			StringBuilder sb = new StringBuilder();
-			//LibSharedUtil.OutputHead(sb, myproject);
+			LibSharedUtil.OutputHead(sb, myproject);
 			LibNStd10Util.OutputInfo(sb, myproject);
 			LibNStd10UUtil.OutputInfo(sb, myproject);
 			// show.
