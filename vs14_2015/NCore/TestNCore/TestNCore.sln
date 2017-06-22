@@ -20,8 +20,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibPcl259", "LibPcl259\LibP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{F25669C0-9425-4FCD-9FF1-53D7A716D74F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibPcl111", "LibPcl111\LibPcl111.csproj", "{3AB7FA58-0D8E-464B-8EF3-A92990FEAE12}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{3ab7fa58-0d8e-464b-8ef3-a92990feae12}*SharedItemsImports = 4
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{491bd28a-22f1-479b-90f9-438bb3f8fe37}*SharedItemsImports = 4
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{6d86924a-dccb-4fdc-a1af-433f0c4a438c}*SharedItemsImports = 13
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{b932fe95-47ee-4d39-98e6-142f250524e7}*SharedItemsImports = 4
@@ -48,6 +51,10 @@ Global
 		{F25669C0-9425-4FCD-9FF1-53D7A716D74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F25669C0-9425-4FCD-9FF1-53D7A716D74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F25669C0-9425-4FCD-9FF1-53D7A716D74F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AB7FA58-0D8E-464B-8EF3-A92990FEAE12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB7FA58-0D8E-464B-8EF3-A92990FEAE12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB7FA58-0D8E-464B-8EF3-A92990FEAE12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB7FA58-0D8E-464B-8EF3-A92990FEAE12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
