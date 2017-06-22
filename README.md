@@ -74,6 +74,8 @@ Use for (用于)——
 
 ### vs14_2015
 
+* `LibSharedUtil_2015`: Shared Project
+
 #### Windows
 
 * `PortableClassLibrary1`: Profile259, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8, Xamarin, ASP.NET Core 1.0. Not allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\mscorlib.dll`
