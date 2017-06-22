@@ -18,11 +18,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibNStd10", "LibNStd10\LibN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibPcl259", "LibPcl259\LibPcl259.csproj", "{B932FE95-47EE-4D39-98E6-142F250524E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{F25669C0-9425-4FCD-9FF1-53D7A716D74F}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{491bd28a-22f1-479b-90f9-438bb3f8fe37}*SharedItemsImports = 4
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{6d86924a-dccb-4fdc-a1af-433f0c4a438c}*SharedItemsImports = 13
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{b932fe95-47ee-4d39-98e6-142f250524e7}*SharedItemsImports = 4
+		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{f25669c0-9425-4fcd-9ff1-53d7a716d74f}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +44,10 @@ Global
 		{B932FE95-47EE-4D39-98E6-142F250524E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B932FE95-47EE-4D39-98E6-142F250524E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B932FE95-47EE-4D39-98E6-142F250524E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25669C0-9425-4FCD-9FF1-53D7A716D74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25669C0-9425-4FCD-9FF1-53D7A716D74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25669C0-9425-4FCD-9FF1-53D7A716D74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25669C0-9425-4FCD-9FF1-53D7A716D74F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
