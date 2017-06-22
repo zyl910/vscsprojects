@@ -92,6 +92,7 @@ Use for (用于)——
 * `ClassLibrary1`: .NETCoreApp 1.0 ClassLibrary. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
 * `TestNCore`: Test .NETCoreApp Console use .NET Standard Class Library or PCL(Portable Class Library) .
 	* `LibNStd10`: .NET Standard 1.0 ClassLibrary. Disabled unsafe by 1.0 . `C:\Program Files\dotnet\shared\Microsoft.NETCore.App\1.0.5\System.Private.CoreLib.ni.dll`
+	* `LibPcl259`: Profile259, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Windows Phone Silverlight 8, Xamarin, ASP.NET Core 1.0. Disabled unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile259\mscorlib.dll`
 	* `TestNCore`: .NETCoreApp 1.0 Console. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
 
 #### Web
