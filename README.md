@@ -88,12 +88,15 @@ Use for (用于)——
 
 #### NCore
 
-* `ConsoleApp1`: .NETCoreApp 1.0 Console. UI no unsafe. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
-* `ClassLibrary1`: .NETCoreApp 1.0 ClassLibrary. UI no unsafe. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
+* `ConsoleApp1`: .NETCoreApp 1.0 Console. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
+* `ClassLibrary1`: .NETCoreApp 1.0 ClassLibrary. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
+* `TestNCore`: Test .NETCoreApp Console use .NET Standard Class Library or PCL(Portable Class Library) .
+	* `LibNStd10`: .NET Standard 1.0 ClassLibrary. Disabled unsafe by 1.0 . `C:\Program Files\dotnet\shared\Microsoft.NETCore.App\1.0.5\System.Private.CoreLib.ni.dll`
+	* `TestNCore`: .NETCoreApp 1.0 Console. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
 
 #### Web
 
-* `WebApplication1`: ASP.NET Core Web Application, .NET Core 1.0. UI no unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.App\1.0.1`
+* `WebApplication1`: ASP.NET Core Web Application, .NET Core 1.0. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.App\1.0.1`
 
 #### Silverlight
 

@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F7AEC140-B002-4A90-9409-5F9DE2A3E2CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB36CC18-5644-4604-9B0D-86C2850E60D0}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TestNCore", "src\TestNCore\TestNCore.xproj", "{8AB29608-5BE7-4EC4-8BFF-8BC2B651F150}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LibSharedUtil_2015", "..\..\..\common\LibSharedUtil\LibSharedUtil_2015.shproj", "{6D86924A-DCCB-4FDC-A1AF-433F0C4A438C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibNStd10", "LibNStd10\LibNStd10.csproj", "{491BD28A-22F1-479B-90F9-438BB3F8FE37}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{491bd28a-22f1-479b-90f9-438bb3f8fe37}*SharedItemsImports = 4
+		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{6d86924a-dccb-4fdc-a1af-433f0c4a438c}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AB29608-5BE7-4EC4-8BFF-8BC2B651F150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB29608-5BE7-4EC4-8BFF-8BC2B651F150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB29608-5BE7-4EC4-8BFF-8BC2B651F150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB29608-5BE7-4EC4-8BFF-8BC2B651F150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491BD28A-22F1-479B-90F9-438BB3F8FE37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491BD28A-22F1-479B-90F9-438BB3F8FE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491BD28A-22F1-479B-90F9-438BB3F8FE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491BD28A-22F1-479B-90F9-438BB3F8FE37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8AB29608-5BE7-4EC4-8BFF-8BC2B651F150} = {F7AEC140-B002-4A90-9409-5F9DE2A3E2CE}
+	EndGlobalSection
+EndGlobal

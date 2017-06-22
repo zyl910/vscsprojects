@@ -108,4 +108,5 @@ UpgradeLog*.XML
 *.pidb
 *.userprefs
 *.pfx
-project.lock.json
+project*.lock.json
+.vs
