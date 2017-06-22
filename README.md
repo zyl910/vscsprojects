@@ -101,6 +101,8 @@ Use for (用于)——
 
 ### vs15_2017
 
+* `LibSharedUtil_2017`: Shared Project
+
 #### Windows
 
 * `PortableClassLibrary1`: Profile7, .NET Framework 4.5, Windows 8, ASP.NET Core 1.0, Xamarin. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile7\mscorlib.dll`
