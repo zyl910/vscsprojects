@@ -17,6 +17,9 @@
         "dependencies": {
             "LibNStd10": {
                 "target": "project"
+            },
+            "LibNStd10U": {
+                "target": "project"
             }
         }
     }

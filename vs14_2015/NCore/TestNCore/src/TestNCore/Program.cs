@@ -1,4 +1,5 @@
 ﻿using LibNStd10;
+using LibNStd10U;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace TestNCore
 			StringBuilder sb = new StringBuilder();
 			//LibSharedUtil.OutputHead(sb, myproject);
 			LibNStd10Util.OutputInfo(sb, myproject);
+			LibNStd10UUtil.OutputInfo(sb, myproject);
 			// show.
 			Console.WriteLine(sb.ToString());
 		}
