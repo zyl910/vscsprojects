@@ -107,6 +107,10 @@ Use for (用于)——
 * `TestSilverlight`: Test Silverlight Application use .NET Standard Class Library or PCL(Portable Class Library) .
 	* `TestSilverlight`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
 
+#### Windows Phone Silverlight
+
+* `PhoneApp1`: Windows Phone Silverlight 8.0 Application. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
+
 ### vs15_2017
 
 * `LibSharedUtil_2017`: Shared Project
