@@ -180,12 +180,20 @@ namespace LibShared {
 			if (string.IsNullOrEmpty(membername)) return rt;
 			if (null == typ) typ = obj.GetType();
 			// Get Property.
+#if (SILVERLIGHT)
+			PropertyInfo pi = typ.GetProperty(membername);
+#else
 			PropertyInfo pi = typ.GetRuntimeProperty(membername);
+#endif
 			if (null == pi) return rt;
 			// Get Value.
 			if (!pi.CanRead) return rt;
 			try {
+#if (SILVERLIGHT)
+				rt = pi.GetValue(obj, null);
+#else
 				rt = pi.GetValue(obj);
+#endif
 				ishad = true;
 			}catch(Exception ex) {
 				Debug.WriteLine(ex.ToString());
@@ -277,7 +285,7 @@ namespace LibShared {
 			sb.AppendLine(string.Format("AssemblyQualifiedName:\t{0}", typeof(Environment).AssemblyQualifiedName));
 			// typeof(Environment).Assembly .
 			sb.AppendLine("[Environment.Assembly]");
-#if (NET20 || NET30 || NET35 || NET40)
+#if (NET20 || NET30 || NET35 || NET40 || SILVERLIGHT)
 			Assembly assembly = typeof(Environment).Assembly;
 #else
 			Assembly assembly = typeof(Environment).GetTypeInfo().Assembly;
