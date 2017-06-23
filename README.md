@@ -103,7 +103,9 @@ Use for (用于)——
 
 #### Silverlight
 
-* `ClassLibrary1`: Silverlight 5. Disabled unsafe by 1.0 . `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
+* `SilverlightApplication1`: Silverlight 5. Disabled unsafe, no support link file . `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
+* `TestSilverlight`: Test Silverlight Application use .NET Standard Class Library or PCL(Portable Class Library) .
+	* `TestSilverlight`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
 
 ### vs15_2017
 
