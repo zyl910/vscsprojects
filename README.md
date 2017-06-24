@@ -105,6 +105,7 @@ Use for (用于)——
 
 * `App1`: Windows 8.1 common Application. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\mscorlib.dll`
 * `ClassLibrary1`: Profile32, Windows 8.1, Windows Phone 8.1. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.6\Profile\Profile32\mscorlib.dll`
+* `ClassLibrary2`: Profile111, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Xamarin, ASP.NET Core 1.0. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile111\mscorlib.dll`
 
 #### Windows 8
 
