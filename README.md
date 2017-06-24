@@ -101,6 +101,10 @@ Use for (用于)——
 
 * `WebApplication1`: ASP.NET Core Web Application, .NET Core 1.0. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.App\1.0.1`
 
+#### Windows 8 Common
+
+* `App1`: Windows 8.1 Universal Application. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\mscorlib.dll`
+
 #### Windows 8
 
 * `App1`: Windows Phone 8.1 Application. Allow unsafe. NETFX_CORE;WINDOWS_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\mscorlib.dll`
