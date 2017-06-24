@@ -101,16 +101,20 @@ Use for (用于)——
 
 * `WebApplication1`: ASP.NET Core Web Application, .NET Core 1.0. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.App\1.0.1`
 
-#### Silverlight
+#### Windows Phone
 
-* `SilverlightApplication1`: Silverlight 5. Disabled unsafe, no support link file . `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
-* `TestSilverlight`: Test Silverlight Application use .NET Standard Class Library or PCL(Portable Class Library) .
-	* `TestSilverlight`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
+* `App1`: Windows Phone 8.1 Application. Allow unsafe. NETFX_CORE;WINDOWS_PHONE_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\mscorlib.dll`
 
 #### Windows Phone Silverlight
 
 * `PhoneApp1`: Windows Phone Silverlight 8.0 Application. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
 * `PhoneClassLibrary1`: Windows Phone Silverlight 8.0 ClassLibrary. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
+
+#### Silverlight
+
+* `SilverlightApplication1`: Silverlight 5. Disabled unsafe, no support link file . `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
+* `TestSilverlight`: Test Silverlight Application use .NET Standard Class Library or PCL(Portable Class Library) .
+	* `TestSilverlight`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.dll`
 
 ### vs15_2017
 
