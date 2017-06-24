@@ -101,12 +101,16 @@ Use for (用于)——
 
 * `WebApplication1`: ASP.NET Core Web Application, .NET Core 1.0. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.App\1.0.1`
 
-#### Windows Phone
+#### Windows 8
+
+* `App1`: Windows Phone 8.1 Application. Allow unsafe. NETFX_CORE;WINDOWS_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\mscorlib.dll`
+
+#### Windows Phone 8
 
 * `App1`: Windows Phone 8.1 Application. Allow unsafe. NETFX_CORE;WINDOWS_PHONE_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\mscorlib.dll`
 * `ClassLibrary1`: Windows Phone 8.1 ClassLibrary. Allow unsafe. NETFX_CORE;WINDOWS_PHONE_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\mscorlib.dll`
 
-#### Windows Phone Silverlight
+#### Windows Phone Silverlight 8
 
 * `PhoneApp1`: Windows Phone Silverlight 8.0 Application. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
 * `PhoneClassLibrary1`: Windows Phone Silverlight 8.0 ClassLibrary. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
