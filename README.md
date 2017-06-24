@@ -128,6 +128,8 @@ Use for (用于)——
 
 * `PhoneApp1`: Windows Phone Silverlight 8.0 Application. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
 * `PhoneClassLibrary1`: Windows Phone Silverlight 8.0 ClassLibrary. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
+* `TestWpa`: Test Windows Phone Silverlight 8.0 Application use .NET Standard Class Library or PCL(Portable Class Library) .
+	* `TestWpa`: Windows Phone Silverlight 8.0 Application. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
 
 #### Silverlight
 

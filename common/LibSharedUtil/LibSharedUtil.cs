@@ -4,10 +4,13 @@ using System.Text;
 using System.Reflection;
 using System.Diagnostics;
 
+//[assembly: System.Security.AllowPartiallyTrustedCallers]
+
 namespace LibShared {
 	/// <summary>
 	/// VS Class Library test util（VS类库项目测试工具）.
 	/// </summary>
+	[System.Security.SecuritySafeCritical]
 	internal class LibSharedUtil {
 		/// <summary>
 		/// Define constants(Conditional compilation symbols) field (定义的常量(条件编译符号)字段) .
@@ -173,6 +176,7 @@ namespace LibShared {
 		/// <param name="membername">成员名.</param>
 		/// <param name="ishad">返回是否存在该属性.</param>
 		/// <returns>返回属性值.</returns>
+		[System.Security.SecuritySafeCritical]
 		public static object GetPropertyValue(Type typ, object obj, String membername, out bool ishad) {
 			object rt = null;
 			ishad = false;
@@ -296,6 +300,13 @@ namespace LibShared {
 			AppendProperty(sb, null, assembly, "FullName");
 			AppendProperty(sb, null, assembly, "ImageRuntimeVersion");
 			AppendProperty(sb, null, assembly, "Location");
+#if (SILVERLIGHT && WINDOWS_PHONE)
+			// System.MethodAccessException: Attempt by method 'LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)' to access method 'System.Reflection.RuntimeAssembly.get_FullName()' failed.
+			//   at LibShared.LibSharedUtil.GetPropertyValue
+			sb.AppendLine(string.Format("FullName:\t{0}", assembly.FullName));
+			sb.AppendLine(string.Format("ImageRuntimeVersion:\t{0}", assembly.ImageRuntimeVersion));
+#else
+#endif
 			sb.AppendLine(string.Format("#IsBigEndian:\t{0}", IsBigEndian()));
 			sb.AppendLine(string.Format("#IsLittleEndian:\t{0}", IsLittleEndian()));
 			sb.AppendLine();
