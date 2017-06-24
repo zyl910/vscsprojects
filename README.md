@@ -105,6 +105,7 @@ Use for (用于)——
 
 * `App1`: Universal Windows Application. Allow unsafe. NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\netcore50\mscorlib.dll`
 * `ClassLibrary1`: Universal Windows ClassLibrary. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\netcore50\mscorlib.dll`
+* `WindowsRuntimeComponent1`: Windows Runtime Component. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\netcore50\mscorlib.dll`
 
 #### Windows 8 common
 
