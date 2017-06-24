@@ -104,6 +104,7 @@ Use for (用于)——
 #### Windows Phone
 
 * `App1`: Windows Phone 8.1 Application. Allow unsafe. NETFX_CORE;WINDOWS_PHONE_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\mscorlib.dll`
+* `ClassLibrary1`: Windows Phone 8.1 ClassLibrary. Allow unsafe. NETFX_CORE;WINDOWS_PHONE_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\mscorlib.dll`
 
 #### Windows Phone Silverlight
 
