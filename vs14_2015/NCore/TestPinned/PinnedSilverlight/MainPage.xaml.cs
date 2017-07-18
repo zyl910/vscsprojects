@@ -1,7 +1,9 @@
-﻿using System;
+﻿using LibPinnedSilverlight;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Permissions;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,10 +20,22 @@ namespace PinnedSilverlight {
 			InitializeComponent();
 		}
 
-		private void btnInfo_Click(object sender, RoutedEventArgs e) {
+        [SecurityPermissionAttribute(SecurityAction.Deny, Flags = SecurityPermissionFlag.AllFlags)]
+        private void btnInfo_Click(object sender, RoutedEventArgs e) {
 			StringBuilder sb = new StringBuilder();
-			// test.
-			try {
+            // test.
+            sb.AppendLine("== LibPinnedSilverlightUtil ==");
+            try
+            {
+                LibPinnedSilverlightUtil.OutputInfo(sb);
+            }
+            catch (Exception ex)
+            {
+                sb.Append(ex.ToString());
+            }
+            sb.AppendLine("== TestPinnedUtil ==");
+            try
+            {
 				TestPinnedUtil.OutputInfo(sb);
 			} catch(Exception ex) {
 				sb.Append(ex.ToString());
