@@ -92,9 +92,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\common\LibSharedUtil\LibSharedUtil.cs">
-      <Link>LibSharedUtil.cs</Link>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -129,6 +126,13 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibWin8\LibWin8.csproj">
+      <Project>{b8189012-9da2-488f-9a79-3f21f96c6907}</Project>
+      <Name>LibWin8</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

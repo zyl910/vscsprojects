@@ -1,4 +1,5 @@
 ﻿using LibShared;
+using LibWin8;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,24 +18,22 @@ using Windows.UI.Xaml.Navigation;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
-namespace TestUwp
-{
-    /// <summary>
-    /// 可用于自身或导航至 Frame 内部的空白页。
-    /// </summary>
-    public sealed partial class MainPage : Page
-    {
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
+namespace TestUwp {
+	/// <summary>
+	/// 可用于自身或导航至 Frame 内部的空白页。
+	/// </summary>
+	public sealed partial class MainPage : Page {
+		public MainPage() {
+			this.InitializeComponent();
+		}
 
-        private void btnInfo_Click(object sender, RoutedEventArgs e) {
-            const string myproject = "TestUwp";
-            StringBuilder sb = new StringBuilder();
-            LibSharedUtil.OutputHead(sb, myproject);
-            // show.
-            txtOut.Text = sb.ToString();
-        }
-    }
+		private void btnInfo_Click(object sender, RoutedEventArgs e) {
+			const string myproject = "TestUwp";
+			StringBuilder sb = new StringBuilder();
+			LibSharedUtil.OutputHead(sb, myproject);
+			LibWin8Util.OutputInfo(sb, myproject);
+			// show.
+			txtOut.Text = sb.ToString();
+		}
+	}
 }

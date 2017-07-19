@@ -108,6 +108,7 @@ Use for (用于)——
 * `WindowsRuntimeComponent1`: Windows Runtime Component. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\netcore50\mscorlib.dll`
 * `TestUwp`: Test Universal Windows Application use Windows 8/.NET Standard/Portable Class Library .
 	* `TestUwp`: Universal Windows Application. Allow unsafe. NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS. `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\ref\netcore50\mscorlib.dll`
+	* `LibWin8`: Profile32, Windows 8.1, Windows Phone 8.1. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.6\Profile\Profile32\mscorlib.dll`
 
 #### Windows 8 common
 
