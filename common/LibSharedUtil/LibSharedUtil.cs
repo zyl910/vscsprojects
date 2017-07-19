@@ -267,14 +267,28 @@ namespace LibShared {
 		}
 
 		/// <summary>
+		/// Get head string (取得标题字符串).
+		/// </summary>
+		/// <param name="headname">Head name (标题名)</param>
+		/// <param name="onproject">On project (所处项目)</param>
+		/// <param name="remark">Remark (备注)</param>
+		/// <returns></returns>
+		public static string GetHeadString(string headname, string onproject, string remark = null) {
+			String rt = string.Format("[{0}]", headname);
+			if (!string.IsNullOrEmpty(onproject) || !string.IsNullOrEmpty(remark))
+				rt += "\t# " + remark;
+			if (!string.IsNullOrEmpty(onproject))
+				rt += " on " + onproject;
+			return rt;
+		}
+
+		/// <summary>
 		/// Output Environment (输出环境信息).
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
 		/// <param name="onproject">On project (所处项目)</param>
 		public static void OutputEnvironment(StringBuilder sb, string onproject) {
-			string str = "[Environment]\t# ";
-			if (!string.IsNullOrEmpty(str)) str += " on " + onproject;
-			sb.AppendLine(str);
+			sb.AppendLine(GetHeadString("Environment", onproject));
 			//sb.AppendLine(string.Format("Is64BitOperatingSystem:\t{0}", Environment.Is64BitOperatingSystem));
 			//sb.AppendLine(string.Format("Is64BitProcess:\t{0}", Environment.Is64BitProcess));
 			//sb.AppendLine(string.Format("OSVersion:\t{0}", Environment.OSVersion));
@@ -318,10 +332,11 @@ namespace LibShared {
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
 		/// <param name="onproject">On project (所处项目)</param>
 		public static void OutputDefineConstants(StringBuilder sb, string onproject) {
-			string str = "[DefineConstants]\t# Conditional compilation symbols";
-			if (!string.IsNullOrEmpty(str)) str += " on " + onproject;
-			sb.AppendLine(str);
-			foreach(string s in DefineConstants) {
+			//string str = "[DefineConstants]\t# Conditional compilation symbols";
+			//if (!string.IsNullOrEmpty(onproject)) str += " on " + onproject;
+			//sb.AppendLine(str);
+			sb.AppendLine(GetHeadString("DefineConstants", onproject, "Conditional compilation symbols."));
+			foreach (string s in DefineConstants) {
 				sb.AppendLine(s);
 			}
 			sb.AppendLine();

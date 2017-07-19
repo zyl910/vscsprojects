@@ -1,4 +1,5 @@
 ﻿using LibShared;
+//using SharedWinrt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace LibWin8 {
 		public static void OutputInfo(StringBuilder sb, string onproject) {
 			string myproject = "LibWin8Util on " + onproject;
 			LibSharedUtil.OutputCommon(sb, myproject);
+			//SharedWinrtUtil.OutputWinrt(sb, myproject);
 		}
 	}
 }

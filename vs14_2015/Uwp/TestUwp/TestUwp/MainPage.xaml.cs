@@ -1,5 +1,6 @@
 ﻿using LibShared;
 using LibWin8;
+using SharedWinrt;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,6 +32,7 @@ namespace TestUwp {
 			const string myproject = "TestUwp";
 			StringBuilder sb = new StringBuilder();
 			LibSharedUtil.OutputHead(sb, myproject);
+			SharedWinrtUtil.OutputWinrt(sb, myproject);
 			LibWin8Util.OutputInfo(sb, myproject);
 			// show.
 			txtOut.Text = sb.ToString();

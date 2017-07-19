@@ -9,10 +9,14 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LibSharedUtil_2015", "..\..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibWin8", "LibWin8\LibWin8.csproj", "{B8189012-9DA2-488F-9A79-3F21F96C6907}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedWinrt", "SharedWinrt\SharedWinrt.shproj", "{5A065BDD-1F83-49A3-B5AF-2F989B85C41A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedWinrt\SharedWinrt.projitems*{5a065bdd-1f83-49a3-b5af-2f989b85c41a}*SharedItemsImports = 13
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{6d86924a-dccb-4fdc-a1af-433f0c4a438c}*SharedItemsImports = 13
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{af5096b2-795d-4bed-b089-9a5605e519c3}*SharedItemsImports = 4
+		SharedWinrt\SharedWinrt.projitems*{af5096b2-795d-4bed-b089-9a5605e519c3}*SharedItemsImports = 4
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{b8189012-9da2-488f-9a79-3f21f96c6907}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
