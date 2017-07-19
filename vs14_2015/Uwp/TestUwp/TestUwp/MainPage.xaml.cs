@@ -1,8 +1,10 @@
-﻿using System;
+﻿using LibShared;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +27,14 @@ namespace TestUwp
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void btnInfo_Click(object sender, RoutedEventArgs e) {
+            const string myproject = "TestUwp";
+            StringBuilder sb = new StringBuilder();
+            LibSharedUtil.OutputHead(sb, myproject);
+            // show.
+            txtOut.Text = sb.ToString();
         }
     }
 }

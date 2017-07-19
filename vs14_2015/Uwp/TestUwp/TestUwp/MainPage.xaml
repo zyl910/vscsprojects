@@ -8,6 +8,15 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button x:Name="btnInfo" Content="Info" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnInfo_Click"/>
+        </StackPanel>
+
+        <TextBox x:Name="txtOut" TextWrapping="Wrap" Grid.Row="1" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
 
     </Grid>
 </Page>
