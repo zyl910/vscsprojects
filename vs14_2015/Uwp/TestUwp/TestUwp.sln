@@ -11,10 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibWin8", "LibWin8\LibWin8.
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedWinrt", "SharedWinrt\SharedWinrt.shproj", "{5A065BDD-1F83-49A3-B5AF-2F989B85C41A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibOnlyWin8", "LibOnlyWin8\LibOnlyWin8.csproj", "{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		SharedWinrt\SharedWinrt.projitems*{5a065bdd-1f83-49a3-b5af-2f989b85c41a}*SharedItemsImports = 13
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{6d86924a-dccb-4fdc-a1af-433f0c4a438c}*SharedItemsImports = 13
+		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{9a30a03e-b9db-4f60-b5df-3b16fcf0716a}*SharedItemsImports = 4
+		SharedWinrt\SharedWinrt.projitems*{9a30a03e-b9db-4f60-b5df-3b16fcf0716a}*SharedItemsImports = 4
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{af5096b2-795d-4bed-b089-9a5605e519c3}*SharedItemsImports = 4
 		SharedWinrt\SharedWinrt.projitems*{af5096b2-795d-4bed-b089-9a5605e519c3}*SharedItemsImports = 4
 		..\..\..\common\LibSharedUtil\LibSharedUtil_2015.projitems*{b8189012-9da2-488f-9a79-3f21f96c6907}*SharedItemsImports = 4
@@ -67,6 +71,22 @@ Global
 		{B8189012-9DA2-488F-9A79-3F21F96C6907}.Release|x64.Build.0 = Release|Any CPU
 		{B8189012-9DA2-488F-9A79-3F21F96C6907}.Release|x86.ActiveCfg = Release|Any CPU
 		{B8189012-9DA2-488F-9A79-3F21F96C6907}.Release|x86.Build.0 = Release|Any CPU
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Debug|ARM.Build.0 = Debug|ARM
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Debug|x64.ActiveCfg = Debug|x64
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Debug|x64.Build.0 = Debug|x64
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Debug|x86.ActiveCfg = Debug|x86
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Debug|x86.Build.0 = Debug|x86
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Release|ARM.ActiveCfg = Release|ARM
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Release|ARM.Build.0 = Release|ARM
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Release|x64.ActiveCfg = Release|x64
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Release|x64.Build.0 = Release|x64
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Release|x86.ActiveCfg = Release|x86
+		{9A30A03E-B9DB-4F60-B5DF-3B16FCF0716A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

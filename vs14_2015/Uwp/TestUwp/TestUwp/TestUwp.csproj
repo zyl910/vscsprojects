@@ -127,6 +127,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibOnlyWin8\LibOnlyWin8.csproj">
+      <Project>{9a30a03e-b9db-4f60-b5df-3b16fcf0716a}</Project>
+      <Name>LibOnlyWin8</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibWin8\LibWin8.csproj">
       <Project>{b8189012-9da2-488f-9a79-3f21f96c6907}</Project>
       <Name>LibWin8</Name>

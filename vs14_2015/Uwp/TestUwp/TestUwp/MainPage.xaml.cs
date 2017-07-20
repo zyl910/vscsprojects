@@ -1,4 +1,5 @@
-﻿using LibShared;
+﻿using LibOnlyWin8;
+using LibShared;
 using LibWin8;
 using SharedWinrt;
 using System;
@@ -36,6 +37,7 @@ namespace TestUwp {
 			OutputUwp(sb, myproject);
 			SharedWinrtUtil.OutputWinrt(sb, myproject);
 			LibWin8Util.OutputInfo(sb, myproject);
+			LibOnlyWin8Util.OutputInfo(sb, myproject);
 			// show.
 			txtOut.Text = sb.ToString();
 		}
