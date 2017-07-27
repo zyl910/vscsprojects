@@ -123,12 +123,12 @@ Use for (用于)——
 * `App1`: Windows Phone 8.1 Application. Allow unsafe. NETFX_CORE;WINDOWS_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\mscorlib.dll`
 * `ClassLibrary1`: Windows 8.1 ClassLibrary. Allow unsafe. NETFX_CORE;WINDOWS_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\mscorlib.dll`
 
-#### Windows Phone 8
+#### wpa: Windows Phone 8
 
 * `App1`: Windows Phone 8.1 Application. Allow unsafe. NETFX_CORE;WINDOWS_PHONE_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\mscorlib.dll`
 * `ClassLibrary1`: Windows Phone 8.1 ClassLibrary. Allow unsafe. NETFX_CORE;WINDOWS_PHONE_APP. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhoneApp\v8.1\mscorlib.dll`
 
-#### Windows Phone Silverlight 8
+#### wp: Windows Phone Silverlight 8
 
 * `PhoneApp1`: Windows Phone Silverlight 8.0 Application. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
 * `PhoneClassLibrary1`: Windows Phone Silverlight 8.0 ClassLibrary. Disabled unsafe. SILVERLIGHT;WINDOWS_PHONE. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\WindowsPhone\v8.0\mscorlib.dll`
