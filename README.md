@@ -13,6 +13,7 @@ Use for (用于)——
 #### Windows
 
 * `ClassLibrary1`: Allow unsafe. `c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll`
+* `ConsoleApplication1`: Allow unsafe. `C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll`
 
 #### SmartDevice
 
