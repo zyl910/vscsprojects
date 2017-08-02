@@ -10,6 +10,10 @@ Use for (用于)——
 
 ### vs08_2005
 
+#### Windows
+
+* `ClassLibrary1`: Allow unsafe. `c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll`
+
 #### SmartDevice
 
 ##### PocketPC
