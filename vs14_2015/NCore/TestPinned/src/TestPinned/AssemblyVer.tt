@@ -13,5 +13,5 @@
   Version verFile = new Version(ver.Major, ver.Minor, now.Year, now.Month*100 + now.Day);
 #>
 [assembly: System.Reflection.AssemblyVersion("<#= ver #>")]
-[assembly: System.Reflection.AssemblyFileVersion("<#= verFile #>")]
 [assembly: System.Reflection.AssemblyInformationalVersion("<#= ver #>")]
+[assembly: System.Reflection.AssemblyFileVersion("<#= verFile #>")]
