@@ -6,8 +6,12 @@
 <#@ output extension=".cs" #>
 
 <#
+  // Base Version (基本版本). 以后版本升级时只改此文件.
+  Version ver = new Version(1, 0, 0, 0);
+  // File Version (文件版本). 将第3部分替换为年份, 第4部分替换为 月份与日号 .
   DateTime now = DateTime.Now;
-  Version ver = new Version(1, 0, now.Year, now.Month*100 + now.Day);
+  Version verFile = new Version(ver.Major, ver.Minor, now.Year, now.Month*100 + now.Day);
 #>
 [assembly: System.Reflection.AssemblyVersion("<#= ver #>")]
-[assembly: System.Reflection.AssemblyFileVersion("<#= ver #>")]
+[assembly: System.Reflection.AssemblyFileVersion("<#= verFile #>")]
+[assembly: System.Reflection.AssemblyInformationalVersion("<#= ver #>")]
