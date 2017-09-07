@@ -171,6 +171,7 @@ Use for (用于)——
 #### .NET Core
 
 * `ConsoleApp1`: .NETCoreApp 1.1 Console. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\system.console\4.3.0\ref\netstandard1.3\System.Console.dll`
+* `ConsoleApp20`: .NETCoreApp 2.0 Console. Allow unsafe. `C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.0.0\ref\netcoreapp2.0\System.Console.dll`
 * `ClassLibrary1`: .NETCoreApp 1.1 ClassLibrary. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\system.console\4.3.0\ref\netstandard1.3\System.Console.dll`
 * `ClassLibrary20`: .NETCoreApp 2.0 ClassLibrary. Allow unsafe. `C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.0.0\ref\netcoreapp2.0\System.Console.dll`, `C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.0.0\ref\netcoreapp2.0\netstandard.dll`
 
