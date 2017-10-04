@@ -14,9 +14,10 @@
 				<Button x:Name="btnInfo" Text="Info" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
 			</StackLayout.Children>
 		</StackLayout>
-		<Label Text="Welcome to Xamarin Forms Test2!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" Grid.Row="1" />
+		<Editor Grid.Row="1" Text="Welcome to Xamarin Forms Test2!"
+				VerticalOptions="FillAndExpand"
+				HorizontalOptions="FillAndExpand"
+				/>
 
 	</Grid>
 
