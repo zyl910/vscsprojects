@@ -4,8 +4,20 @@
              xmlns:local="clr-namespace:App_Xamarin_Pcl"
              x:Class="App_Xamarin_Pcl.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<StackLayout Orientation="Horizontal">
+			<StackLayout.Children>
+				<Button x:Name="btnInfo" Text="Info" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+			</StackLayout.Children>
+		</StackLayout>
+		<Label Text="Welcome to Xamarin Forms Test2!" 
            VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+           HorizontalOptions="Center" Grid.Row="1" />
+
+	</Grid>
 
 </ContentPage>
