@@ -4,8 +4,21 @@
              xmlns:local="clr-namespace:App_Xamarin_Shared"
              x:Class="App_Xamarin_Shared.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<StackLayout Orientation="Horizontal">
+			<StackLayout.Children>
+				<Button x:Name="btnInfo" Text="Info" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+			</StackLayout.Children>
+		</StackLayout>
+		<Editor x:Name="txtInfo" Grid.Row="1" Text="Welcome to Xamarin Forms!"
+				VerticalOptions="FillAndExpand"
+				HorizontalOptions="FillAndExpand"
+				/>
+
+	</Grid>
 
 </ContentPage>

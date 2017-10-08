@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "App_Xamarin_Shared", "App_Xamarin_Shared\App_Xamarin_Shared\App_Xamarin_Shared.shproj", "{636A04AA-B647-47CF-8F23-F8A93358CF3A}"
 EndProject
@@ -14,6 +14,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		App_Xamarin_Shared\App_Xamarin_Shared\App_Xamarin_Shared.projitems*{636a04aa-b647-47cf-8f23-f8a93358cf3a}*SharedItemsImports = 13
+		App_Xamarin_Shared\App_Xamarin_Shared\App_Xamarin_Shared.projitems*{7a3faed3-0262-4655-b92c-250296e74f37}*SharedItemsImports = 4
 		App_Xamarin_Shared\App_Xamarin_Shared\App_Xamarin_Shared.projitems*{eb252b98-fc90-4b0a-962f-1d098e772724}*SharedItemsImports = 4
 		App_Xamarin_Shared\App_Xamarin_Shared\App_Xamarin_Shared.projitems*{f9be68f1-316d-480a-bcc7-e08372726d6b}*SharedItemsImports = 4
 	EndGlobalSection
@@ -211,5 +212,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0FB8817-DD7B-41D3-BA74-5A12BB7B79B2}
 	EndGlobalSection
 EndGlobal
