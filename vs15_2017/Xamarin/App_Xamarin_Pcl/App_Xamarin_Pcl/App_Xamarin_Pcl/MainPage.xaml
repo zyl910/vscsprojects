@@ -14,7 +14,7 @@
 				<Button x:Name="btnInfo" Text="Info" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
 			</StackLayout.Children>
 		</StackLayout>
-		<Editor Grid.Row="1" Text="Welcome to Xamarin Forms Test2!"
+		<Editor x:Name="txtInfo" Grid.Row="1" Text="Welcome to Xamarin Forms Test2!"
 				VerticalOptions="FillAndExpand"
 				HorizontalOptions="FillAndExpand"
 				/>
