@@ -51,7 +51,7 @@ namespace ReflectSpeed {
 		private PropertyInfo GetPropertyInfo(string name, object obj, Type objtype) {
 			if (null == obj && null == objtype) throw new ArgumentNullException("objtype", "obj and objtype is null!");
 			if (null == objtype) objtype = obj.GetType();
-#if NET2 || NET3 || NET4
+#if NET2 || NET3 || NET4 || SILVERLIGHT
 			return objtype.GetProperty(name);
 #else
 			//TypeInfo typeInfo = objtype.GetTypeInfo();
@@ -111,7 +111,7 @@ namespace ReflectSpeed {
 			sw.Restart();
 			cnt = 0;
 			for (int i = 0; i < MaxCount; ++i) {
-				pi.GetValue(null);
+				pi.GetValue(null, null);
 				++cnt;
 			}
 			sw.Stop();
@@ -122,7 +122,7 @@ namespace ReflectSpeed {
 			// GetMethod.
 			Func<int> f = null;
 			try {
-				MethodInfo mi = pi.GetMethod;
+				MethodInfo mi = pi.GetGetMethod();
 				f = CreateDelegate<Func<int> >(mi, null);
 			} catch (Exception ex) {
 				sb.AppendLine(ex.ToString());
@@ -185,7 +185,7 @@ namespace ReflectSpeed {
 			sw.Restart();
 			cnt = 0;
 			for (int i = 0; i < MaxCount; ++i) {
-				pi.GetValue(a);
+				pi.GetValue(a, null);
 				++cnt;
 			}
 			sw.Stop();
@@ -196,7 +196,7 @@ namespace ReflectSpeed {
 			// GetMethod.
 			Func<int> f = null;
 			try {
-				MethodInfo mi = pi.GetMethod;
+				MethodInfo mi = pi.GetGetMethod();
 				f = CreateDelegate<Func<int>>(mi, a);
 			} catch (Exception ex) {
 				sb.AppendLine(ex.ToString());
@@ -220,5 +220,32 @@ namespace ReflectSpeed {
 			// done.
 			sb.AppendLine();
 		}
+
+#if SILVERLIGHT
+		private class Stopwatch {
+			private int m_StartTick = 0;
+			private int m_ElapsedTick = 0;
+
+			public int ElapsedMilliseconds {
+				get {
+					return m_ElapsedTick - m_StartTick;
+				}
+			}
+
+			internal void Restart() {
+				m_StartTick = Environment.TickCount;
+				m_ElapsedTick = m_StartTick;
+			}
+
+			internal void Start() {
+				Restart();
+			}
+
+			internal void Stop() {
+				m_ElapsedTick = Environment.TickCount;
+			}
+		}
+#endif
+
 	}
 }

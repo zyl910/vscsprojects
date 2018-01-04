@@ -112,6 +112,7 @@ Use for (用于)——
 * `ReflectSpeed`: Test Reflect Speed.
 	* `ReflectSpeed`: Windows Console .
 	* `ReflectSpeedNCore`: .NETCoreApp 1.0 Console.
+	* `ReflectSpeedSilverlight`: Disabled unsafe. 
 
 #### Web
 

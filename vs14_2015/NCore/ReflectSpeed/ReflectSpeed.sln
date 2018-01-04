@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectSpeed", "ReflectSpeed\ReflectSpeed.csproj", "{696AABCE-AD10-42E0-8527-7AC5FB2BBAF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectSpeedSilverlight", "ReflectSpeedSilverlight\ReflectSpeedSilverlight.csproj", "{17ED4C30-762B-4B1F-9ABF-821A2D7DB9AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{696AABCE-AD10-42E0-8527-7AC5FB2BBAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{696AABCE-AD10-42E0-8527-7AC5FB2BBAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{696AABCE-AD10-42E0-8527-7AC5FB2BBAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17ED4C30-762B-4B1F-9ABF-821A2D7DB9AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17ED4C30-762B-4B1F-9ABF-821A2D7DB9AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17ED4C30-762B-4B1F-9ABF-821A2D7DB9AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17ED4C30-762B-4B1F-9ABF-821A2D7DB9AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
