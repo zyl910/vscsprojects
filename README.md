@@ -109,6 +109,9 @@ Use for (用于)——
 	* `LibPcl111`: Profile111, .NET Framework 4.5, Windows 8, Windows Phone 8.1, Xamarin, ASP.NET Core 1.0. Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile111\mscorlib.dll`
 	* `TestNCore`: .NETCoreApp 1.0 Console. UI no unsafe, no support Shared Project, no support link file. `C:\Users\dssdw10\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll`
 	* `TestConsole`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll`
+* `ReflectSpeed`: Test Reflect Speed.
+	* `ReflectSpeed`: Windows Console .
+	* `ReflectSpeedNCore`: .NETCoreApp 1.0 Console.
 
 #### Web
 
