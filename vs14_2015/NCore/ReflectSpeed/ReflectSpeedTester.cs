@@ -85,7 +85,7 @@ namespace ReflectSpeed {
 			double msOnce;
 			PropertyInfo pi = null;
 			sb.AppendLine("[Environment.ProcessorCount]");
-			// HardCode.
+			// Native.
 			sw.Start();
 			cnt = 0;
 			for (int i=0; i< MaxCount; ++i) {
@@ -96,7 +96,7 @@ namespace ReflectSpeed {
 			Debug.WriteLine(tmp);
 			if (cnt <= 0) cnt = 1;
 			msOnce = (double)sw.ElapsedMilliseconds / cnt;
-			sb.AppendLine(String.Format("HardCode: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			sb.AppendLine(String.Format("Native: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
 			// GetValue.
 			try {
 				pi = GetPropertyInfo("ProcessorCount", null, typeof(Environment));
@@ -142,7 +142,7 @@ namespace ReflectSpeed {
 			Debug.WriteLine(tmp);
 			if (cnt <= 0) cnt = 1;
 			msOnce = (double)sw.ElapsedMilliseconds / cnt;
-			sb.AppendLine(String.Format("GetMethod: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			sb.AppendLine(String.Format("DelegateCall: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
 			// done.
 			sb.AppendLine();
 		}
@@ -159,7 +159,7 @@ namespace ReflectSpeed {
 			double msOnce;
 			PropertyInfo pi = null;
 			sb.AppendLine("[Tuple]");
-			// HardCode.
+			// Native.
 			sw.Start();
 			cnt = 0;
 			for (int i = 0; i < MaxCount; ++i) {
@@ -170,7 +170,7 @@ namespace ReflectSpeed {
 			Debug.WriteLine(tmp);
 			if (cnt <= 0) cnt = 1;
 			msOnce = (double)sw.ElapsedMilliseconds / cnt;
-			sb.AppendLine(String.Format("HardCode: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			sb.AppendLine(String.Format("Native: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
 			// GetValue.
 			try {
 				pi = GetPropertyInfo("Item1", a, null);
@@ -194,9 +194,10 @@ namespace ReflectSpeed {
 			msOnce = (double)sw.ElapsedMilliseconds / cnt;
 			sb.AppendLine(String.Format("GetValue: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
 			// GetMethod.
+			MethodInfo mi = null;
 			Func<int> f = null;
 			try {
-				MethodInfo mi = pi.GetGetMethod();
+				mi = pi.GetGetMethod();
 				f = CreateDelegate<Func<int>>(mi, a);
 			} catch (Exception ex) {
 				sb.AppendLine(ex.ToString());
@@ -206,6 +207,31 @@ namespace ReflectSpeed {
 				sb.AppendLine("Can't get Item1 Delegate");
 				return;
 			}
+			// MethodInfo
+			sw.Restart();
+			cnt = 0;
+			for (int i = 0; i < MaxCount; ++i) {
+				mi.Invoke(a, null);
+				++cnt;
+			}
+			sw.Stop();
+			Debug.WriteLine(tmp);
+			if (cnt <= 0) cnt = 1;
+			msOnce = (double)sw.ElapsedMilliseconds / cnt;
+			sb.AppendLine(String.Format("MethodInfo: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			// DelegateInvoke
+			sw.Restart();
+			cnt = 0;
+			for (int i = 0; i < MaxCount; ++i) {
+				tmp ^= f.Invoke();
+				++cnt;
+			}
+			sw.Stop();
+			Debug.WriteLine(tmp);
+			if (cnt <= 0) cnt = 1;
+			msOnce = (double)sw.ElapsedMilliseconds / cnt;
+			sb.AppendLine(String.Format("DelegateInvoke: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			// DelegateCall
 			sw.Restart();
 			cnt = 0;
 			for (int i = 0; i < MaxCount; ++i) {
@@ -216,7 +242,7 @@ namespace ReflectSpeed {
 			Debug.WriteLine(tmp);
 			if (cnt <= 0) cnt = 1;
 			msOnce = (double)sw.ElapsedMilliseconds / cnt;
-			sb.AppendLine(String.Format("GetMethod: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			sb.AppendLine(String.Format("DelegateCall: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
 			// done.
 			sb.AppendLine();
 		}
