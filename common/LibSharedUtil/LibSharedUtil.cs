@@ -194,7 +194,36 @@ namespace LibShared {
 			if (!pi.CanRead) return rt;
 			try {
 #if (SILVERLIGHT)
-				rt = pi.GetValue(obj, null);
+				// System.Reflection.RuntimeAssembly.get_FullName: [SecuritySafeCritical]
+				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_FullName() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
+				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
+				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, IRuntimeMethodInfo method, RuntimeType parent, UInt32 invocationFlags)
+				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+				//   位于 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
+
+				// System.Reflection.RuntimeAssembly.get_Location: [SecurityCritical]
+				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_Location() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
+				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
+				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, IRuntimeMethodInfo method, RuntimeType parent, UInt32 invocationFlags)
+				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+				//   位于 System.Reflection.RuntimePropertyInfo.GetValue(Object obj, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+				//   位于 System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
+				//rt = pi.GetValue(obj, null);
+				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_Location() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
+				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
+				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, IRuntimeMethodInfo method, RuntimeType parent, UInt32 invocationFlags)
+				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+				//   位于 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
+				MethodInfo mi = pi.GetGetMethod();
+				rt = mi.Invoke(obj, null);
+				//mi.CreateDelegate()
+				//Delegate.CreateDelegate
 #else
 				rt = pi.GetValue(obj);
 #endif
@@ -287,6 +316,7 @@ namespace LibShared {
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
 		/// <param name="onproject">On project (所处项目)</param>
+		[System.Security.SecuritySafeCritical]
 		public static void OutputEnvironment(StringBuilder sb, string onproject) {
 			sb.AppendLine(GetHeadString("Environment", onproject));
 			//sb.AppendLine(string.Format("Is64BitOperatingSystem:\t{0}", Environment.Is64BitOperatingSystem));
@@ -308,17 +338,21 @@ namespace LibShared {
 #else
 			Assembly assembly = typeof(Environment).GetTypeInfo().Assembly;
 #endif
-			//sb.AppendLine(string.Format("Assembly.FullName:\t{0}", assembly.FullName));
 			//sb.AppendLine(string.Format("Assembly.ImageRuntimeVersion:\t{0}", assembly.ImageRuntimeVersion));
 			//sb.AppendLine(string.Format("Assembly.Location:\t{0}", assembly.Location));
 			AppendProperty(sb, null, assembly, "FullName");
 			AppendProperty(sb, null, assembly, "ImageRuntimeVersion");
 			AppendProperty(sb, null, assembly, "Location");
-#if (SILVERLIGHT && WINDOWS_PHONE)
+#if (SILVERLIGHT || WINDOWS_PHONE)
+			// System.Reflection.RuntimeAssembly.get_FullName: [SecuritySafeCritical]
 			// System.MethodAccessException: Attempt by method 'LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)' to access method 'System.Reflection.RuntimeAssembly.get_FullName()' failed.
 			//   at LibShared.LibSharedUtil.GetPropertyValue
-			sb.AppendLine(string.Format("FullName:\t{0}", assembly.FullName));
-			sb.AppendLine(string.Format("ImageRuntimeVersion:\t{0}", assembly.ImageRuntimeVersion));
+			//sb.AppendLine(string.Format("#FullName:\t{0}", assembly.FullName));
+			//sb.AppendLine(string.Format("#ImageRuntimeVersion:\t{0}", assembly.ImageRuntimeVersion));
+
+			// System.Reflection.RuntimeAssembly.get_Location: [SecurityCritical]
+			// System.MethodAccessException: Attempt by method 'LibShared.LibSharedUtil.OutputEnvironment(System.Text.StringBuilder, System.String)' to access method 'System.Reflection.RuntimeAssembly.get_Location()' failed.
+			//sb.AppendLine(string.Format("#Location:\t{0}", assembly.Location));
 #else
 #endif
 			sb.AppendLine(string.Format("#IsBigEndian:\t{0}", IsBigEndian()));
