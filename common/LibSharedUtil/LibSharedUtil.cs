@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
 using System.Diagnostics;
+using System.Reflection.Emit;
 
 //[assembly: System.Security.AllowPartiallyTrustedCallers]
 
@@ -168,6 +169,52 @@ namespace LibShared {
 			return (4 == GetEndianMagicByte());
 		}
 
+#if (SILVERLIGHT)
+		public object Environment_TickCount() {
+			return Environment.TickCount;
+		}
+
+		public object Environment_OSVersion() {
+			return Environment.OSVersion;
+		}
+
+		/// <summary>
+		/// 创建Func委托_取得委托类型.
+		/// </summary>
+		/// <param name="method"></param>
+		/// <returns>返回委托类型.</returns>
+		public static Type CreateDelegateFunc_GetType(MethodInfo method) {
+			Type rt = null;
+			Type returnType = method.ReturnType;
+			ParameterInfo[] parameters = method.GetParameters();
+			if (null == parameters) {
+				rt = typeof(Func<>).MakeGenericType(returnType);
+			} else {
+				switch(parameters.Length) {
+					case 0:
+						rt = typeof(Func<>).MakeGenericType(returnType);
+						break;
+					default:
+						new ArgumentException(string.Format("Not supported Parameters.Length({0})!", parameters.Length), "method");
+						break;
+				}
+			}
+			return rt;
+		}
+
+		/// <summary>
+		/// 根据 MethodInfo , 创建 Func 委托.
+		/// </summary>
+		/// <param name="method"></param>
+		/// <param name="target"></param>
+		/// <returns>返回创建好的委托.</returns>
+		public static Delegate CreateDelegateFunc(MethodInfo method, Object target) {
+			Type delegateType = CreateDelegateFunc_GetType(method);
+			return Delegate.CreateDelegate(delegateType, target, method);
+			//return method.CreateDelegate(delegateType, target);
+		}
+#endif
+
 		/// <summary>
 		/// 取得属性值.
 		/// </summary>
@@ -202,28 +249,54 @@ namespace LibShared {
 				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
 				//   位于 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
 				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
+				rt = pi.GetValue(obj, null);
 
-				// System.Reflection.RuntimeAssembly.get_Location: [SecurityCritical]
-				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_Location() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
-				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
-				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, IRuntimeMethodInfo method, RuntimeType parent, UInt32 invocationFlags)
-				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-				//   位于 System.Reflection.RuntimePropertyInfo.GetValue(Object obj, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
-				//   位于 System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
-				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
-				//rt = pi.GetValue(obj, null);
-				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_Location() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
-				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
-				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, IRuntimeMethodInfo method, RuntimeType parent, UInt32 invocationFlags)
-				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
-				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
-				//   位于 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
-				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
-				MethodInfo mi = pi.GetGetMethod();
-				rt = mi.Invoke(obj, null);
-				//mi.CreateDelegate()
-				//Delegate.CreateDelegate
+//				// System.Reflection.RuntimeAssembly.get_Location: [SecurityCritical]
+//				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_Location() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
+//				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
+//				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, IRuntimeMethodInfo method, RuntimeType parent, UInt32 invocationFlags)
+//				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+//				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+//				//   位于 System.Reflection.RuntimePropertyInfo.GetValue(Object obj, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+//				//   位于 System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+//				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
+//				//rt = pi.GetValue(obj, null);
+//				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_Location() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
+//				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
+//				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, IRuntimeMethodInfo method, RuntimeType parent, UInt32 invocationFlags)
+//				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+//				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+//				//   位于 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+//				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
+//				MethodInfo mi = pi.GetGetMethod();
+//				//rt = mi.Invoke(obj, null);
+
+//				if (null!=mi.ReturnType && mi.GetParameters().Length<=0) {
+//					// DynamicMethod.
+//					//System.Security.VerificationException: 操作可能会破坏运行时稳定性。
+//					//System.TypeAccessException: 方法“DynamicClass.(System.Reflection.RuntimeAssembly)”访问类型“System.Reflection.RuntimeAssembly”的尝试失败。
+//					Type returnType = typeof(object);
+//					DynamicMethod meth = new DynamicMethod("", returnType
+//						,new Type[] { typ }
+//#if (!SILVERLIGHT)
+//						, true
+//#endif
+//						);
+//					ILGenerator il = meth.GetILGenerator();
+//					il.Emit(OpCodes.Ldarg_0);
+//					il.EmitCall(OpCodes.Call, mi, null);
+//					il.Emit(OpCodes.Stloc_0);
+//					il.Emit(OpCodes.Ldloc_0);
+//					il.Emit(OpCodes.Ret);
+
+//					Func<object> f = meth.CreateDelegate(typeof(Func<object>), obj) as Func<object>;
+//					rt = f();
+//				} else {
+//					// System.ArgumentException: 无法绑定到目标方法，因为它的签名或安全透明与委托类型的签名或安全透明不兼容。
+//					Delegate d = CreateDelegateFunc(mi, obj);
+//					rt = d.DynamicInvoke(null);
+//				}
+
 #else
 				rt = pi.GetValue(obj);
 #endif
@@ -347,7 +420,7 @@ namespace LibShared {
 			// System.Reflection.RuntimeAssembly.get_FullName: [SecuritySafeCritical]
 			// System.MethodAccessException: Attempt by method 'LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)' to access method 'System.Reflection.RuntimeAssembly.get_FullName()' failed.
 			//   at LibShared.LibSharedUtil.GetPropertyValue
-			//sb.AppendLine(string.Format("#FullName:\t{0}", assembly.FullName));
+			sb.AppendLine(string.Format("#FullName:\t{0}", assembly.FullName));
 			//sb.AppendLine(string.Format("#ImageRuntimeVersion:\t{0}", assembly.ImageRuntimeVersion));
 
 			// System.Reflection.RuntimeAssembly.get_Location: [SecurityCritical]
