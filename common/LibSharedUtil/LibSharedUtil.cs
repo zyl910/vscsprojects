@@ -210,9 +210,22 @@ namespace LibShared {
 			if (null == pi) return rt;
 			// Get Value.
 			if (!pi.CanRead) return rt;
+			//object[] attrs = pi.GetCustomAttributes(true);
+			//object[] attrs2 = pi.GetGetMethod().GetCustomAttributes(true);
 			try {
 #if (SILVERLIGHT)
 				// -- 研究 SILVERLIGHT 如何反射访问 SecuritySafeCritical . 发现均不行, 可能是为了安全性故意限制了.
+
+				//System.MethodAccessException: 安全透明方法 System.Reflection.Assembly.get_FullName() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
+				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
+				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, IRuntimeMethodInfo method, RuntimeType parent, UInt32 invocationFlags)
+				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+				//   位于 System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+				//   位于 System.Type.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args)
+				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
+				//typ.InvokeMember(membername, BindingFlags.GetProperty, null, obj, null);
+
 				// System.Reflection.RuntimeAssembly.get_FullName: [SecuritySafeCritical]
 				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_FullName() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
 				//   位于 System.RuntimeMethodHandle.PerformSecurityCheck(Object obj, RuntimeMethodHandleInternal method, RuntimeType parent, UInt32 invocationFlags)
@@ -221,7 +234,7 @@ namespace LibShared {
 				//   位于 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
 				//   位于 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
 				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
-				rt = pi.GetValue(obj, null);
+				//rt = pi.GetValue(obj, null);
 
 				// System.Reflection.RuntimeAssembly.get_Location: [SecurityCritical]
 				//System.MethodAccessException: 安全透明方法 System.Reflection.RuntimeAssembly.get_Location() 无法使用反射访问 LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)。
@@ -242,11 +255,17 @@ namespace LibShared {
 				//MethodInfo mi = pi.GetGetMethod();
 				//rt = mi.Invoke(obj, null);
 
+				// 通过 RuntimeAssembly 访问 SecuritySafeCritical: error
 				//System.TypeAccessException: 方法“DynamicClass.lambda_method(System.Runtime.CompilerServices.Closure, System.Object)”访问类型“System.Reflection.RuntimeAssembly”的尝试失败。
 				//   位于 lambda_method(Closure, Object)
 				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
-				//Func < object, object> f = CreateGetFunction(pi);
-				//rt = f(obj);
+				// 通过 Assembly 访问 SecuritySafeCritical: ok
+				// 通过 Assembly 访问 SecurityCritical: error
+				//System.MethodAccessException: 安全透明方法“DynamicClass.lambda_method(System.Runtime.CompilerServices.Closure, System.Object)”访问安全关键方法“System.Reflection.Assembly.get_Location()”的尝试失败。
+				//   位于 lambda_method(Closure, Object)
+				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
+				Func< object, object> f = CreateGetFunction(pi);
+				rt = f(obj);
 
 #else
 				rt = pi.GetValue(obj);
@@ -362,11 +381,12 @@ namespace LibShared {
 #else
 			Assembly assembly = typeof(Environment).GetTypeInfo().Assembly;
 #endif
+			typ = typeof(Assembly);
 			//sb.AppendLine(string.Format("Assembly.ImageRuntimeVersion:\t{0}", assembly.ImageRuntimeVersion));
 			//sb.AppendLine(string.Format("Assembly.Location:\t{0}", assembly.Location));
-			AppendProperty(sb, null, assembly, "FullName");
-			AppendProperty(sb, null, assembly, "ImageRuntimeVersion");
-			AppendProperty(sb, null, assembly, "Location");
+			AppendProperty(sb, typ, assembly, "FullName");
+			AppendProperty(sb, typ, assembly, "ImageRuntimeVersion");
+			AppendProperty(sb, typ, assembly, "Location");
 #if (SILVERLIGHT || WINDOWS_PHONE)
 			// System.Reflection.RuntimeAssembly.get_FullName: [SecuritySafeCritical]
 			// System.MethodAccessException: Attempt by method 'LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)' to access method 'System.Reflection.RuntimeAssembly.get_FullName()' failed.
