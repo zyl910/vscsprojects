@@ -172,17 +172,31 @@ namespace LibShared {
 
 #if (SILVERLIGHT)
 		/// <summary>
+		/// 根据 PropertyInfo , 创建 Func 委托, 具有 casttarget/castresult 参数可控制是否总是做转型.
+		/// </summary>
+		/// <typeparam name="T">目标对象的类型.</typeparam>
+		/// <typeparam name="TResult">返回值的类型.</typeparam>
+		/// <param name="pi">属性信息.</param>
+		/// <param name="casttarget">是否对目标对象进行转型. 即转为 pi.DeclaringType .</param>
+		/// <param name="castresult">是否对返回值进行转型. 即转为 TResult. </param>
+		/// <returns>返回所创建的 Func 委托.</returns>
+		public static Func<T, TResult> CreateGetFunction<T, TResult>(PropertyInfo pi, bool casttarget=false, bool castresult = false) {
+			MethodInfo getMethod = pi.GetGetMethod();
+			ParameterExpression target = Expression.Parameter(typeof(T), "target");
+			Expression castedTarget = (getMethod.IsStatic) ? null :
+				(casttarget) ? Expression.Convert(target, pi.DeclaringType) as Expression: target;
+			MemberExpression getProperty = Expression.Property(castedTarget, pi);
+			Expression castPropertyValue = (castresult) ? Expression.Convert(getProperty, typeof(TResult)) as Expression : getProperty;
+			return Expression.Lambda<Func<T, TResult>>(castPropertyValue, target).Compile();
+		}
+
+		/// <summary>
 		/// 根据 PropertyInfo , 创建 Func 委托.
 		/// </summary>
 		/// <param name="pi"></param>
-		/// <returns></returns>
+		/// <returns>返回所创建的 Func 委托.</returns>
 		public static Func<object, object> CreateGetFunction(PropertyInfo pi) {
-			MethodInfo getMethod = pi.GetGetMethod();
-			ParameterExpression target = Expression.Parameter(typeof(object), "target");
-			UnaryExpression castedTarget = getMethod.IsStatic ? null : Expression.Convert(target, pi.DeclaringType);
-			MemberExpression getProperty = Expression.Property(castedTarget, pi);
-			UnaryExpression castPropertyValue = Expression.Convert(getProperty, typeof(object));
-			return Expression.Lambda<Func<object, object>>(castPropertyValue, target).Compile();
+			return CreateGetFunction<object, object>(pi, true, true);
 		}
 #endif
 
@@ -382,11 +396,6 @@ namespace LibShared {
 			Assembly assembly = typeof(Environment).GetTypeInfo().Assembly;
 #endif
 			typ = typeof(Assembly);
-			//sb.AppendLine(string.Format("Assembly.ImageRuntimeVersion:\t{0}", assembly.ImageRuntimeVersion));
-			//sb.AppendLine(string.Format("Assembly.Location:\t{0}", assembly.Location));
-			AppendProperty(sb, typ, assembly, "FullName");
-			AppendProperty(sb, typ, assembly, "ImageRuntimeVersion");
-			AppendProperty(sb, typ, assembly, "Location");
 #if (SILVERLIGHT || WINDOWS_PHONE)
 			// System.Reflection.RuntimeAssembly.get_FullName: [SecuritySafeCritical]
 			// System.MethodAccessException: Attempt by method 'LibShared.LibSharedUtil.GetPropertyValue(System.Type, System.Object, System.String, Boolean ByRef)' to access method 'System.Reflection.RuntimeAssembly.get_FullName()' failed.
@@ -399,6 +408,9 @@ namespace LibShared {
 			//sb.AppendLine(string.Format("#Location:\t{0}", assembly.Location));
 #else
 #endif
+			AppendProperty(sb, typ, assembly, "FullName");
+			AppendProperty(sb, typ, assembly, "ImageRuntimeVersion");
+			AppendProperty(sb, typ, assembly, "Location");
 			sb.AppendLine(string.Format("#IsBigEndian:\t{0}", IsBigEndian()));
 			sb.AppendLine(string.Format("#IsLittleEndian:\t{0}", IsLittleEndian()));
 			sb.AppendLine();
