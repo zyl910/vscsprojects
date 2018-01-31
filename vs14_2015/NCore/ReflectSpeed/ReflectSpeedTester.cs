@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +73,33 @@ namespace ReflectSpeed {
 #else
 			return (T)(object)mi.CreateDelegate(typeof(T), target);
 #endif
+		}
+		/// <summary>
+		/// 利用Expression技术, 根据 PropertyInfo , 创建 Func 委托, 具有 casttarget/castresult 参数可控制是否总是做转型.
+		/// </summary>
+		/// <typeparam name="T">目标对象的类型.</typeparam>
+		/// <typeparam name="TResult">返回值的类型.</typeparam>
+		/// <param name="pi">属性信息.</param>
+		/// <param name="casttarget">是否对目标对象进行转型. 即转为 pi.DeclaringType .</param>
+		/// <param name="castresult">是否对返回值进行转型. 即转为 TResult. </param>
+		/// <returns>返回所创建的 Func 委托.</returns>
+		private static Func<T, TResult> CreateGetFunctionExpression<T, TResult>(PropertyInfo pi, bool casttarget = false, bool castresult = false) {
+			MethodInfo getMethod = pi.GetGetMethod();
+			ParameterExpression target = Expression.Parameter(typeof(T), "target");
+			Expression castedTarget = (getMethod.IsStatic) ? null :
+				(casttarget) ? Expression.Convert(target, pi.DeclaringType) as Expression : target;
+			MemberExpression getProperty = Expression.Property(castedTarget, pi);
+			Expression castPropertyValue = (castresult) ? Expression.Convert(getProperty, typeof(TResult)) as Expression : getProperty;
+			return Expression.Lambda<Func<T, TResult>>(castPropertyValue, target).Compile();
+		}
+
+		/// <summary>
+		/// 利用Expression技术, 根据 PropertyInfo , 创建 Func 委托.
+		/// </summary>
+		/// <param name="pi"></param>
+		/// <returns>返回所创建的 Func 委托.</returns>
+		private static Func<object, object> CreateGetFunctionExpression(PropertyInfo pi) {
+			return CreateGetFunctionExpression<object, object>(pi, true, true);
 		}
 
 		/// <summary>
@@ -243,6 +271,33 @@ namespace ReflectSpeed {
 			if (cnt <= 0) cnt = 1;
 			msOnce = (double)sw.ElapsedMilliseconds / cnt;
 			sb.AppendLine(String.Format("DelegateCall: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			// CreateGetFunctionExpression
+			Func<Tuple<int>, int> f3 = CreateGetFunctionExpression<Tuple<int>, int>(pi);
+			sw.Restart();
+			cnt = 0;
+			for (int i = 0; i < MaxCount; ++i) {
+				tmp ^= f3(a);
+				++cnt;
+			}
+			sw.Stop();
+			Debug.WriteLine(tmp);
+			if (cnt <= 0) cnt = 1;
+			msOnce = (double)sw.ElapsedMilliseconds / cnt;
+			sb.AppendLine(String.Format("CreateGetFunctionExpression: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			// CreateGetFunctionExpression 构造速度太慢. 大约 0.14 秒才能构造一个, 比普通反射约慢了500倍.
+			//// CreateGetFunctionExpression_create
+			//sw.Restart();
+			//cnt = 0;
+			//for (int i = 0; i < MaxCount; ++i) {
+			//	Func<Tuple<int>, int> ft = CreateGetFunctionExpression<Tuple<int>, int>(pi);
+			//	tmp ^= ft(a);
+			//	++cnt;
+			//}
+			//sw.Stop();
+			//Debug.WriteLine(tmp);
+			//if (cnt <= 0) cnt = 1;
+			//msOnce = (double)sw.ElapsedMilliseconds / cnt;
+			//sb.AppendLine(String.Format("CreateGetFunctionExpression_create: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
 			// done.
 			sb.AppendLine();
 		}

@@ -66,26 +66,30 @@ DelegateCall: 0.000004 . Milliseconds=4
 ReflectSpeed - Silverlight 5
 
 [Environment.ProcessorCount]
-Native: 0.001016 . Milliseconds=1016
-GetValue: 0.001484 . Milliseconds=1484
-DelegateCall: 0.001047 . Milliseconds=1047
-
-[Tuple]
-Native: 0.000016 . Milliseconds=16
-GetValue: 0.000281 . Milliseconds=281
-MethodInfo: 0.000297 . Milliseconds=297
-DelegateInvoke: 0.000015 . Milliseconds=15
-DelegateCall: 0.000016 . Milliseconds=16
-
-[Environment.ProcessorCount]
-Native: 0.001016 . Milliseconds=1016
-GetValue: 0.001468 . Milliseconds=1468
-DelegateCall: 0.001110 . Milliseconds=1110
+Native: 0.001109 . Milliseconds=1109
+GetValue: 0.001579 . Milliseconds=1579
+DelegateCall: 0.001203 . Milliseconds=1203
 
 [Tuple]
 Native: 0.000015 . Milliseconds=15
-GetValue: 0.000297 . Milliseconds=297
+GetValue: 0.000328 . Milliseconds=328
 MethodInfo: 0.000282 . Milliseconds=282
 DelegateInvoke: 0.000015 . Milliseconds=15
-DelegateCall: 0.000031 . Milliseconds=31
+DelegateCall: 0.000016 . Milliseconds=16
+CreateGetFunctionExpression: 0.000000 . Milliseconds=0
+CreateGetFunctionExpression_create: 0.163609 . Milliseconds=163609
+
+[Environment.ProcessorCount]
+Native: 0.001219 . Milliseconds=1219
+GetValue: 0.002203 . Milliseconds=2203
+DelegateCall: 0.001281 . Milliseconds=1281
+
+[Tuple]
+Native: 0.000016 . Milliseconds=16
+GetValue: 0.000312 . Milliseconds=312
+MethodInfo: 0.000297 . Milliseconds=297
+DelegateInvoke: 0.000016 . Milliseconds=16
+DelegateCall: 0.000015 . Milliseconds=15
+CreateGetFunctionExpression: 0.000000 . Milliseconds=0
+CreateGetFunctionExpression_create: 0.143891 . Milliseconds=143891
 ```
