@@ -89,27 +89,24 @@ namespace ReflectSpeed {
 		private static Func<T, TResult> CreateGetFunctionEmit<T, TResult>(PropertyInfo pi, bool casttarget = false, bool castresult = false) {
 			MethodInfo getMethod = pi.GetGetMethod();
 			if (null== getMethod) throw new InvalidOperationException( string.Format("Cannot find a readable \"{0}\" from the type \"{1}\".", pi.Name, pi.DeclaringType.FullName));
-			DynamicMethod method = new DynamicMethod("GetValue", typeof(object), new Type[] { typeof(object) });
+			DynamicMethod method = new DynamicMethod("GetValue_" + pi.Name, typeof(TResult), new Type[] { typeof(T) });
 			ILGenerator ilGenerator = method.GetILGenerator();
 			ilGenerator.DeclareLocal(typeof(TResult));
 			ilGenerator.Emit(OpCodes.Ldarg_0);
-			ilGenerator.Emit(OpCodes.Castclass, pi.DeclaringType);
-			ilGenerator.EmitCall(OpCodes.Call, getMethod, null);
-			if (getMethod.ReturnType.IsValueType) {
-				ilGenerator.Emit(OpCodes.Box, getMethod.ReturnType);
+			if (casttarget) {
+				ilGenerator.Emit(OpCodes.Castclass, pi.DeclaringType);
 			}
-			ilGenerator.Emit(OpCodes.Stloc_0);
-			ilGenerator.Emit(OpCodes.Ldloc_0);
+			ilGenerator.EmitCall(OpCodes.Call, getMethod, null);
+			if (castresult) {
+				if (getMethod.ReturnType.IsValueType) {
+					ilGenerator.Emit(OpCodes.Box, getMethod.ReturnType);
+				}
+				ilGenerator.Emit(OpCodes.Stloc_0);
+				ilGenerator.Emit(OpCodes.Ldloc_0);
+			}
 			ilGenerator.Emit(OpCodes.Ret);
 			method.DefineParameter(1, ParameterAttributes.In, "value");
 			return (Func<T, TResult>)method.CreateDelegate(typeof(Func<T, TResult>));
-
-			//ParameterExpression target = Expression.Parameter(typeof(T), "target");
-			//Expression castedTarget = (getMethod.IsStatic) ? null :
-			//	(casttarget) ? Expression.Convert(target, pi.DeclaringType) as Expression : target;
-			//MemberExpression getProperty = Expression.Property(castedTarget, pi);
-			//Expression castPropertyValue = (castresult) ? Expression.Convert(getProperty, typeof(TResult)) as Expression : getProperty;
-			//return Expression.Lambda<Func<T, TResult>>(castPropertyValue, target).Compile();
 		}
 
 		/// <summary>
@@ -324,7 +321,9 @@ namespace ReflectSpeed {
 			cnt = 0;
 			for (int i = 0; i < MaxCount; ++i) {
 				// CreateGetFunctionEmit 构造速度太慢. 大约 0.14 秒才能构造一个, 比普通反射约慢了500倍.
-				Func<object, object> f2 = CreateGetFunctionEmit(pi);
+				//Func<object, object> f2 = CreateGetFunctionEmit(pi);
+				//Func<Tuple<int>, object> f2 = CreateGetFunctionEmit<Tuple<int>, object>(pi, false, false);
+				Func<Tuple<int>, int> f2 = CreateGetFunctionEmit<Tuple<int>, int>(pi, false, false);
 				object t = f2(a);
 				//tmp ^= f2(a);
 				++cnt;
