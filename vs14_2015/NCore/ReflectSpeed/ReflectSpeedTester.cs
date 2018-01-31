@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,8 @@ namespace ReflectSpeed {
 		/// <summary>
 		/// 最大次数.
 		/// </summary>
-		public const int MaxCount = 1000000;
+		//public const int MaxCount = 1000000;
+		public const int MaxCount = 1000;
 
 		/// <summary>
 		/// 重复显示次数.
@@ -74,6 +76,51 @@ namespace ReflectSpeed {
 			return (T)(object)mi.CreateDelegate(typeof(T), target);
 #endif
 		}
+
+		/// <summary>
+		/// 利用IL Emit技术, 根据 PropertyInfo , 创建 Func 委托, 具有 casttarget/castresult 参数可控制是否总是做转型.
+		/// </summary>
+		/// <typeparam name="T">目标对象的类型.</typeparam>
+		/// <typeparam name="TResult">返回值的类型.</typeparam>
+		/// <param name="pi">属性信息.</param>
+		/// <param name="casttarget">是否对目标对象进行转型. 即转为 pi.DeclaringType .</param>
+		/// <param name="castresult">是否对返回值进行转型. 即转为 TResult. </param>
+		/// <returns>返回所创建的 Func 委托.</returns>
+		private static Func<T, TResult> CreateGetFunctionEmit<T, TResult>(PropertyInfo pi, bool casttarget = false, bool castresult = false) {
+			MethodInfo getMethod = pi.GetGetMethod();
+			if (null== getMethod) throw new InvalidOperationException( string.Format("Cannot find a readable \"{0}\" from the type \"{1}\".", pi.Name, pi.DeclaringType.FullName));
+			DynamicMethod method = new DynamicMethod("GetValue", typeof(object), new Type[] { typeof(object) });
+			ILGenerator ilGenerator = method.GetILGenerator();
+			ilGenerator.DeclareLocal(typeof(TResult));
+			ilGenerator.Emit(OpCodes.Ldarg_0);
+			ilGenerator.Emit(OpCodes.Castclass, pi.DeclaringType);
+			ilGenerator.EmitCall(OpCodes.Call, getMethod, null);
+			if (getMethod.ReturnType.IsValueType) {
+				ilGenerator.Emit(OpCodes.Box, getMethod.ReturnType);
+			}
+			ilGenerator.Emit(OpCodes.Stloc_0);
+			ilGenerator.Emit(OpCodes.Ldloc_0);
+			ilGenerator.Emit(OpCodes.Ret);
+			method.DefineParameter(1, ParameterAttributes.In, "value");
+			return (Func<T, TResult>)method.CreateDelegate(typeof(Func<T, TResult>));
+
+			//ParameterExpression target = Expression.Parameter(typeof(T), "target");
+			//Expression castedTarget = (getMethod.IsStatic) ? null :
+			//	(casttarget) ? Expression.Convert(target, pi.DeclaringType) as Expression : target;
+			//MemberExpression getProperty = Expression.Property(castedTarget, pi);
+			//Expression castPropertyValue = (castresult) ? Expression.Convert(getProperty, typeof(TResult)) as Expression : getProperty;
+			//return Expression.Lambda<Func<T, TResult>>(castPropertyValue, target).Compile();
+		}
+
+		/// <summary>
+		/// 利用IL Emit技术, 根据 PropertyInfo , 创建 Func 委托.
+		/// </summary>
+		/// <param name="pi"></param>
+		/// <returns>返回所创建的 Func 委托.</returns>
+		private static Func<object, object> CreateGetFunctionEmit(PropertyInfo pi) {
+			return CreateGetFunctionEmit<object, object>(pi, true, true);
+		}
+
 		/// <summary>
 		/// 利用Expression技术, 根据 PropertyInfo , 创建 Func 委托, 具有 casttarget/castresult 参数可控制是否总是做转型.
 		/// </summary>
@@ -271,6 +318,22 @@ namespace ReflectSpeed {
 			if (cnt <= 0) cnt = 1;
 			msOnce = (double)sw.ElapsedMilliseconds / cnt;
 			sb.AppendLine(String.Format("DelegateCall: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
+			// CreateGetFunctionEmit
+			//Func<Tuple<int>, int> f2 = CreateGetFunctionEmit<Tuple<int>, int>(pi);
+			sw.Restart();
+			cnt = 0;
+			for (int i = 0; i < MaxCount; ++i) {
+				// CreateGetFunctionEmit 构造速度太慢. 大约 0.14 秒才能构造一个, 比普通反射约慢了500倍.
+				Func<object, object> f2 = CreateGetFunctionEmit(pi);
+				object t = f2(a);
+				//tmp ^= f2(a);
+				++cnt;
+			}
+			sw.Stop();
+			Debug.WriteLine(tmp);
+			if (cnt <= 0) cnt = 1;
+			msOnce = (double)sw.ElapsedMilliseconds / cnt;
+			sb.AppendLine(String.Format("CreateGetFunctionEmit: {0:" + TimeSpanFormat + "} . Milliseconds={1}", msOnce, sw.ElapsedMilliseconds));
 			// CreateGetFunctionExpression
 			Func<Tuple<int>, int> f3 = CreateGetFunctionExpression<Tuple<int>, int>(pi);
 			sw.Restart();
