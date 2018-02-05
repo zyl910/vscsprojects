@@ -170,9 +170,27 @@ namespace LibShared {
 			return (4 == GetEndianMagicByte());
 		}
 
+		/// <summary>
+		/// 取得属性信息对象.
+		/// </summary>
+		/// <param name="name">属性名.</param>
+		/// <param name="obj">对象.</param>
+		/// <param name="objtype">对象类型. 若 obj 为 null，且 objtype 有值，则表示是静态属性.</param>
+		/// <returns>返回属性对象.</returns>
+		private static PropertyInfo GetPropertyInfo(string name, object obj, Type objtype) {
+			if (null == obj && null == objtype) throw new ArgumentNullException("objtype", "obj and objtype is null!");
+			if (null == objtype) objtype = obj.GetType();
+#if NET2 || NET3 || NET4 || SILVERLIGHT
+			return objtype.GetProperty(name);
+#else
+			//TypeInfo typeInfo = objtype.GetTypeInfo();
+			return objtype.GetRuntimeProperty(name);
+#endif
+		}
+
 #if (SILVERLIGHT)
 		/// <summary>
-		/// 根据 PropertyInfo , 创建 Func 委托, 具有 casttarget/castresult 参数可控制是否总是做转型.
+		/// 利用IL Emit技术, 根据 PropertyInfo , 创建 Func 委托, 具有 casttarget/castresult 参数可控制是否总是做转型.
 		/// </summary>
 		/// <typeparam name="T">目标对象的类型.</typeparam>
 		/// <typeparam name="TResult">返回值的类型.</typeparam>
@@ -180,23 +198,71 @@ namespace LibShared {
 		/// <param name="casttarget">是否对目标对象进行转型. 即转为 pi.DeclaringType .</param>
 		/// <param name="castresult">是否对返回值进行转型. 即转为 TResult. </param>
 		/// <returns>返回所创建的 Func 委托.</returns>
-		public static Func<T, TResult> CreateGetFunction<T, TResult>(PropertyInfo pi, bool casttarget=false, bool castresult = false) {
+		private static Func<T, TResult> CreateGetFunctionEmit<T, TResult>(PropertyInfo pi, bool casttarget = false, bool castresult = false) {
+			MethodInfo getMethod = pi.GetGetMethod();
+			if (null == getMethod) throw new InvalidOperationException(string.Format("Cannot find a readable \"{0}\" from the type \"{1}\".", pi.Name, pi.DeclaringType.FullName));
+			DynamicMethod method = new DynamicMethod("GetValue_" + pi.Name, typeof(TResult), new Type[] { typeof(T) });
+			ILGenerator ilGenerator = method.GetILGenerator();
+			ilGenerator.DeclareLocal(typeof(TResult));
+			ilGenerator.Emit(OpCodes.Nop);
+			ilGenerator.Emit(OpCodes.Ldarg_0);
+			if (!getMethod.IsStatic && casttarget) {
+				ilGenerator.Emit(OpCodes.Castclass, pi.DeclaringType);
+			}
+			ilGenerator.EmitCall(OpCodes.Call, getMethod, null);
+			if (castresult) {
+				if (getMethod.ReturnType.IsValueType) {
+					ilGenerator.Emit(OpCodes.Box, getMethod.ReturnType);
+				} else {
+					//ilGenerator.Emit(OpCodes.Castclass, typeof(TResult));
+				}
+				ilGenerator.Emit(OpCodes.Stloc_0);
+				//ilGenerator.Emit(OpCodes.Br_S);
+				Label targetInstruction = ilGenerator.DefineLabel();
+				ilGenerator.Emit(OpCodes.Br_S, targetInstruction);
+				ilGenerator.MarkLabel(targetInstruction);
+				ilGenerator.Emit(OpCodes.Ldloc_0);
+			}
+			ilGenerator.Emit(OpCodes.Ret);
+			method.DefineParameter(1, ParameterAttributes.In, "value");
+			return (Func<T, TResult>)method.CreateDelegate(typeof(Func<T, TResult>));
+		}
+
+		/// <summary>
+		/// 利用IL Emit技术, 根据 PropertyInfo , 创建 Func 委托.
+		/// </summary>
+		/// <param name="pi"></param>
+		/// <returns>返回所创建的 Func 委托.</returns>
+		private static Func<object, object> CreateGetFunctionEmit(PropertyInfo pi) {
+			return CreateGetFunctionEmit<object, object>(pi, true, true);
+		}
+
+		/// <summary>
+		/// 利用Expression技术, 根据 PropertyInfo , 创建 Func 委托, 具有 casttarget/castresult 参数可控制是否总是做转型.
+		/// </summary>
+		/// <typeparam name="T">目标对象的类型.</typeparam>
+		/// <typeparam name="TResult">返回值的类型.</typeparam>
+		/// <param name="pi">属性信息.</param>
+		/// <param name="casttarget">是否对目标对象进行转型. 即转为 pi.DeclaringType .</param>
+		/// <param name="castresult">是否对返回值进行转型. 即转为 TResult. </param>
+		/// <returns>返回所创建的 Func 委托.</returns>
+		private static Func<T, TResult> CreateGetFunctionExpression<T, TResult>(PropertyInfo pi, bool casttarget = false, bool castresult = false) {
 			MethodInfo getMethod = pi.GetGetMethod();
 			ParameterExpression target = Expression.Parameter(typeof(T), "target");
 			Expression castedTarget = (getMethod.IsStatic) ? null :
-				(casttarget) ? Expression.Convert(target, pi.DeclaringType) as Expression: target;
+				(casttarget) ? Expression.Convert(target, pi.DeclaringType) as Expression : target;
 			MemberExpression getProperty = Expression.Property(castedTarget, pi);
 			Expression castPropertyValue = (castresult) ? Expression.Convert(getProperty, typeof(TResult)) as Expression : getProperty;
 			return Expression.Lambda<Func<T, TResult>>(castPropertyValue, target).Compile();
 		}
 
 		/// <summary>
-		/// 根据 PropertyInfo , 创建 Func 委托.
+		/// 利用Expression技术, 根据 PropertyInfo , 创建 Func 委托.
 		/// </summary>
 		/// <param name="pi"></param>
 		/// <returns>返回所创建的 Func 委托.</returns>
-		public static Func<object, object> CreateGetFunction(PropertyInfo pi) {
-			return CreateGetFunction<object, object>(pi, true, true);
+		private static Func<object, object> CreateGetFunctionExpression(PropertyInfo pi) {
+			return CreateGetFunctionExpression<object, object>(pi, true, true);
 		}
 #endif
 
@@ -278,7 +344,10 @@ namespace LibShared {
 				//System.MethodAccessException: 安全透明方法“DynamicClass.lambda_method(System.Runtime.CompilerServices.Closure, System.Object)”访问安全关键方法“System.Reflection.Assembly.get_Location()”的尝试失败。
 				//   位于 lambda_method(Closure, Object)
 				//   位于 LibShared.LibSharedUtil.GetPropertyValue(Type typ, Object obj, String membername, Boolean & ishad)
-				Func< object, object> f = CreateGetFunction(pi);
+				//Func< object, object> f = CreateGetFunctionExpression(pi);
+				//rt = f(obj);
+
+				Func<object, object> f = CreateGetFunctionEmit(pi);
 				rt = f(obj);
 
 #else
@@ -413,8 +482,41 @@ namespace LibShared {
 			AppendProperty(sb, typ, assembly, "Location");
 			sb.AppendLine(string.Format("#IsBigEndian:\t{0}", IsBigEndian()));
 			sb.AppendLine(string.Format("#IsLittleEndian:\t{0}", IsLittleEndian()));
+			if (true) {
+				try {
+					//Tuple<int> a = new Tuple<int>(1);
+					//PropertyInfo pi = GetPropertyInfo("Item1", a, null);
+					Tuple<string> a = new Tuple<string>("Item1");
+					PropertyInfo pi = GetPropertyInfo("Item1", a, null);
+					//Assembly a = assembly;
+					//PropertyInfo pi = GetPropertyInfo("FullName", a, null);
+					Func<object, object> f2 = CreateGetFunctionEmit(pi);
+					object t = f2(a);
+					sb.AppendLine(String.Format("{0}", t));
+				} catch (Exception ex) {
+					Debug.WriteLine(ex);
+				}
+			}
 			sb.AppendLine();
 		}
+
+		internal static object DemoIL(Assembly a) {
+			return a.FullName;
+		}
+//.method assembly hidebysig static object 
+//        DemoIL(class [mscorlib]System.Reflection.Assembly a) cil managed
+//{
+//  // 代码大小       12 (0xc)
+//  .maxstack  1
+//  .locals init ([0] object V_0)
+//  IL_0000:  nop
+//  IL_0001:  ldarg.0
+//  IL_0002:  callvirt   instance string [mscorlib]System.Reflection.Assembly::get_FullName()
+//  IL_0007:  stloc.0
+//  IL_0008:  br.s       IL_000a
+//  IL_000a:  ldloc.0
+//  IL_000b:  ret
+//} // end of method LibSharedUtil::DemoIL
 
 		/// <summary>
 		/// Output define constants(Conditional compilation symbols) (输出定义常量(条件编译符号)).

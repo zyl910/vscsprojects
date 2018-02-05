@@ -321,9 +321,9 @@ namespace ReflectSpeed {
 			cnt = 0;
 			for (int i = 0; i < MaxCount; ++i) {
 				// CreateGetFunctionEmit 构造速度太慢. 大约 0.14 秒才能构造一个, 比普通反射约慢了500倍.
-				//Func<object, object> f2 = CreateGetFunctionEmit(pi);
+				Func<object, object> f2 = CreateGetFunctionEmit(pi);
 				//Func<Tuple<int>, object> f2 = CreateGetFunctionEmit<Tuple<int>, object>(pi, false, false);
-				Func<Tuple<int>, int> f2 = CreateGetFunctionEmit<Tuple<int>, int>(pi, false, false);
+				//Func<Tuple<int>, int> f2 = CreateGetFunctionEmit<Tuple<int>, int>(pi, false, false);
 				object t = f2(a);
 				//tmp ^= f2(a);
 				++cnt;
