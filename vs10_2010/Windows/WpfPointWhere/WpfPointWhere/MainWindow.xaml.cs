@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Diagnostics;
 
 namespace WpfPointWhere {
 	/// <summary>
@@ -64,6 +65,18 @@ namespace WpfPointWhere {
 			tw.WriteLine(string.Format("ActualHeight: {0}", src.ActualHeight));
 			tw.WriteLine(string.Format("DesiredSize: {0}", src.DesiredSize));
 			tw.WriteLine(string.Format("RenderSize: {0}", src.RenderSize));
+			// screen point.
+			Rect rct = new Rect();
+			try {
+				Point client0 = new Point(0, 0);
+				Point client1 = new Point(src.ActualWidth, src.ActualHeight);
+				Point screen0 = src.PointToScreen(client0);
+				Point screen1 = src.PointToScreen(client1);
+				rct = new Rect(screen0, screen1);
+			} catch (Exception ex) {
+				Debug.WriteLine(ex);
+			}
+			tw.WriteLine(string.Format("ToScreen: {0}", rct));
 			tw.WriteLine();
 		}
 
@@ -100,7 +113,6 @@ namespace WpfPointWhere {
 		private void Window_Loaded(object sender, RoutedEventArgs e) {
 			btnDrag_Click(btnDrag, null);
 			btnSystemInfo_Click(btnSystemInfo, null);
-			//tbcInfo.SelectedIndex = 1;
 		}
 
 		private void btnSystemInfo_Click(object sender, RoutedEventArgs e) {
