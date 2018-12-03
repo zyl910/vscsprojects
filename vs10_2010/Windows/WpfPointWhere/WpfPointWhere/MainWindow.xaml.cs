@@ -94,8 +94,9 @@ namespace WpfPointWhere {
 			tw.WriteLine(string.Format("ActualWidth: {0}", this.ActualWidth));
 			tw.WriteLine(string.Format("ActualHeight: {0}", this.ActualHeight));
 			tw.WriteLine();
-			// grdRoot.
+			// Grid.
 			FillGrid(tw, grdRoot, "grdRoot");
+			FillGrid(tw, grdMain, "grdMain");
 		}
 
 		/// <summary>
@@ -104,7 +105,6 @@ namespace WpfPointWhere {
 		private void UpdateDragInfo() {
 			StringBuilder sb = new StringBuilder();
 			using (TextWriter tw = new StringWriter(sb)) {
-				FillBaseInfo(tw);
 				//FillDragInfo(tw);
 			}
 			txtDragInfo.Text = sb.ToString();
@@ -118,6 +118,7 @@ namespace WpfPointWhere {
 		private void btnSystemInfo_Click(object sender, RoutedEventArgs e) {
 			StringBuilder sb = new StringBuilder();
 			using (TextWriter tw = new StringWriter(sb)) {
+				FillBaseInfo(tw);
 				FillSystemInfo(tw);
 			}
 			txtSystemInfo.Text = sb.ToString();

@@ -1,27 +1,29 @@
 ﻿<Window x:Class="WpfPointWhere.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="400" Width="500" Loaded="Window_Loaded">
+        Title="MainWindow" Loaded="Window_Loaded">
     <Grid Name="grdRoot">
-		<Grid Name="grdMain">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
-				<RowDefinition />
-			</Grid.RowDefinitions>
-			<WrapPanel Grid.Row="0">
-				<Button Margin="5" Padding="5" Name="btnDrag" Content="Drag" Click="btnDrag_Click" />
-				<Button Margin="5" Padding="5" Name="btnSystemInfo" Content="SystemInfo" Click="btnSystemInfo_Click" />
-			</WrapPanel>
-			<Grid Grid.Row="1">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*" />
-					<ColumnDefinition Width="5" />
-					<ColumnDefinition Width="*" />
-				</Grid.ColumnDefinitions>
-				<TextBox Grid.Column="0" Name="txtDragInfo" TextWrapping="Wrap" IsReadOnlyCaretVisible="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" />
-				<GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
-				<TextBox Grid.Column="2" Name="txtSystemInfo" TextWrapping="Wrap" IsReadOnlyCaretVisible="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" />
+		<Viewbox>
+			<Grid Name="grdMain" Width="600" Height="400" Background="AliceBlue">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<WrapPanel Grid.Row="0">
+					<Button Margin="5" Padding="5" Name="btnDrag" Content="Drag" Click="btnDrag_Click" />
+					<Button Margin="5" Padding="5" Name="btnSystemInfo" Content="SystemInfo" Click="btnSystemInfo_Click" />
+				</WrapPanel>
+				<Grid Grid.Row="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="5" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<TextBox Grid.Column="0" Name="txtDragInfo" TextWrapping="Wrap" IsReadOnlyCaretVisible="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" />
+					<GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+					<TextBox Grid.Column="2" Name="txtSystemInfo" TextWrapping="Wrap" IsReadOnlyCaretVisible="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" />
+				</Grid>
 			</Grid>
-		</Grid>
+		</Viewbox>
 	</Grid>
 </Window>
