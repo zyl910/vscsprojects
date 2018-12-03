@@ -54,9 +54,9 @@ namespace WpfPointWhere {
 		/// <summary>
 		/// 填充网格信息.
 		/// </summary>
-		/// <param name="tw"></param>
-		/// <param name="src"></param>
-		/// <param name="title"></param>
+		/// <param name="tw">文本输出者.</param>
+		/// <param name="src">源对象.</param>
+		/// <param name="title">标题</param>
 		private void FillGrid(TextWriter tw, Grid src, string title) {
 			tw.WriteLine(string.Format("[{0}]", title));
 			tw.WriteLine(string.Format("Width: {0}", src.Width));
@@ -83,7 +83,7 @@ namespace WpfPointWhere {
 		/// <summary>
 		/// 填充基本信息.
 		/// </summary>
-		/// <param name="tw"></param>
+		/// <param name="tw">文本输出者.</param>
 		private void FillBaseInfo(TextWriter tw) {
 			tw.WriteLine("[Window]");
 			tw.WriteLine(string.Format("RestoreBounds: {0}", this.RestoreBounds));
@@ -100,18 +100,49 @@ namespace WpfPointWhere {
 		}
 
 		/// <summary>
+		/// 填充拖动信息.
+		/// </summary>
+		/// <param name="tw">文本输出者.</param>
+		/// <param name="e">鼠标事件.</param>
+		private void FillDragInfo(TextWriter tw, MouseEventArgs e) {
+			if (null == e) return;
+			ContentControl btnDrag = this.btnDrag;
+			tw.WriteLine("[MouseEventArgs]");
+			tw.WriteLine(string.Format("Timestamp: {0}", e.Timestamp));
+			tw.WriteLine(string.Format("GetPosition(btnDrag): {0}", e.GetPosition(btnDrag)));
+			tw.WriteLine(string.Format("GetPosition(grdMain): {0}", e.GetPosition(grdMain)));
+			tw.WriteLine(string.Format("GetPosition(grdRoot): {0}", e.GetPosition(grdRoot)));
+			tw.WriteLine();
+			// MouseDevice
+			MouseDevice md = e.MouseDevice;
+			if (null == md) return;
+			tw.WriteLine("[MouseDevice]");
+			//tw.WriteLine(string.Format("ToString: {0}", md));
+			tw.WriteLine(string.Format("GetPosition(btnDrag): {0}", md.GetPosition(btnDrag)));
+			tw.WriteLine();
+			// PointToScreen.
+			tw.WriteLine("[Screen Point]");
+			tw.WriteLine(string.Format("MouseEventArgs: {0}", btnDrag.PointToScreen(e.GetPosition(btnDrag))));
+			tw.WriteLine(string.Format("MouseDevice: {0}", btnDrag.PointToScreen(md.GetPosition(btnDrag))));
+			tw.WriteLine(string.Format("Control.MousePosition: {0}", System.Windows.Forms.Control.MousePosition));
+			tw.WriteLine(string.Format("Cursor.Position: {0}", System.Windows.Forms.Cursor.Position));
+			tw.WriteLine();
+		}
+
+		/// <summary>
 		/// 更新拖动信息.
 		/// </summary>
-		private void UpdateDragInfo() {
+		/// <param name="e">鼠标事件.</param>
+		private void UpdateDragInfo(MouseEventArgs e) {
 			StringBuilder sb = new StringBuilder();
 			using (TextWriter tw = new StringWriter(sb)) {
-				//FillDragInfo(tw);
+				FillDragInfo(tw, e);
 			}
 			txtDragInfo.Text = sb.ToString();
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e) {
-			btnDrag_Click(btnDrag, null);
+			//btnDrag_Click(btnDrag, null);
 			btnSystemInfo_Click(btnSystemInfo, null);
 		}
 
@@ -124,8 +155,36 @@ namespace WpfPointWhere {
 			txtSystemInfo.Text = sb.ToString();
 		}
 
-		private void btnDrag_Click(object sender, RoutedEventArgs e) {
-			UpdateDragInfo();
+		private void btnDrag_MouseMove(object sender, MouseEventArgs e) {
+			UpdateDragInfo(e);
+		}
+
+		private void btnDrag_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+			Debug.WriteLine("MouseLeftButtonDown");
+			//btnDrag.CaptureMouse();
+		}
+
+		private void btnDrag_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
+			Debug.WriteLine("MouseLeftButtonUp");
+			btnDrag.ReleaseMouseCapture();
+		}
+
+		private void btnDrag_PreviewMouseDown(object sender, MouseButtonEventArgs e) {
+			Debug.WriteLine("PreviewMouseDown");
+			if (null == e) return;
+			if (e.LeftButton == MouseButtonState.Pressed) {
+				e.Handled = true;
+				btnDrag.CaptureMouse();
+			}
+		}
+
+		private void btnDrag_PreviewMouseUp(object sender, MouseButtonEventArgs e) {
+			Debug.WriteLine("PreviewMouseUp");
+			if (e.LeftButton == MouseButtonState.Pressed) {
+				if (btnDrag.IsMouseCaptureWithin) {
+					btnDrag.ReleaseMouseCapture();
+				}
+			}
 		}
 
 	}
