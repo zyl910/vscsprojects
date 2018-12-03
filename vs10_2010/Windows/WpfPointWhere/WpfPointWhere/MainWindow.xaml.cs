@@ -106,7 +106,7 @@ namespace WpfPointWhere {
 		/// <param name="e">鼠标事件.</param>
 		private void FillDragInfo(TextWriter tw, MouseEventArgs e) {
 			if (null == e) return;
-			ContentControl btnDrag = this.btnDrag;
+			ContentControl btnDrag = this.lblDrag;
 			tw.WriteLine("[MouseEventArgs]");
 			tw.WriteLine(string.Format("Timestamp: {0}", e.Timestamp));
 			tw.WriteLine(string.Format("GetPosition(btnDrag): {0}", e.GetPosition(btnDrag)));
@@ -155,34 +155,24 @@ namespace WpfPointWhere {
 			txtSystemInfo.Text = sb.ToString();
 		}
 
-		private void btnDrag_MouseMove(object sender, MouseEventArgs e) {
+		private void lblDrag_MouseMove(object sender, MouseEventArgs e) {
 			UpdateDragInfo(e);
 		}
 
-		private void btnDrag_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
-			Debug.WriteLine("MouseLeftButtonDown");
-			//btnDrag.CaptureMouse();
-		}
-
-		private void btnDrag_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
-			Debug.WriteLine("MouseLeftButtonUp");
-			btnDrag.ReleaseMouseCapture();
-		}
-
-		private void btnDrag_PreviewMouseDown(object sender, MouseButtonEventArgs e) {
-			Debug.WriteLine("PreviewMouseDown");
+		private void lblDrag_MouseDown(object sender, MouseButtonEventArgs e) {
+			Debug.WriteLine("MouseDown");
 			if (null == e) return;
-			if (e.LeftButton == MouseButtonState.Pressed) {
+			if (e.ChangedButton == MouseButton.Left) {
 				e.Handled = true;
-				btnDrag.CaptureMouse();
+				lblDrag.CaptureMouse();
 			}
 		}
 
-		private void btnDrag_PreviewMouseUp(object sender, MouseButtonEventArgs e) {
-			Debug.WriteLine("PreviewMouseUp");
-			if (e.LeftButton == MouseButtonState.Pressed) {
-				if (btnDrag.IsMouseCaptureWithin) {
-					btnDrag.ReleaseMouseCapture();
+		private void lblDrag_MouseUp(object sender, MouseButtonEventArgs e) {
+			Debug.WriteLine("MouseUp");
+			if (e.ChangedButton == MouseButton.Left) {
+				if (lblDrag.IsMouseCaptureWithin) {
+					lblDrag.ReleaseMouseCapture();
 				}
 			}
 		}

@@ -10,7 +10,7 @@
 					<RowDefinition />
 				</Grid.RowDefinitions>
 				<WrapPanel Grid.Row="0">
-					<Button Margin="5" Padding="5" Name="btnDrag" Content="Drag" MouseMove="btnDrag_MouseMove" PreviewMouseDown="btnDrag_PreviewMouseDown" PreviewMouseUp="btnDrag_PreviewMouseUp" />
+					<Label Name="lblDrag" Content="Drag" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Lavender" MouseMove="lblDrag_MouseMove" MouseDown="lblDrag_MouseDown" MouseUp="lblDrag_MouseUp" />
 					<Button Margin="5" Padding="5" Name="btnSystemInfo" Content="SystemInfo" Click="btnSystemInfo_Click" />
 				</WrapPanel>
 				<Grid Grid.Row="1">
