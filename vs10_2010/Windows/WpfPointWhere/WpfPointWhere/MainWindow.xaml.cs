@@ -49,6 +49,12 @@ namespace WpfPointWhere {
 			//tw.WriteLine(string.Format("MinimumWindowTrackWidth: {0}", SystemParameters.MinimumWindowWidth));
 			tw.WriteLine(string.Format("WorkArea: {0}", SystemParameters.WorkArea));
 			tw.WriteLine();
+			tw.WriteLine("[Screens]");
+			System.Windows.Forms.Screen[] screens = System.Windows.Forms.Screen.AllScreens;
+			foreach (System.Windows.Forms.Screen screen in screens) {
+				tw.WriteLine(screen);
+			}
+			tw.WriteLine();
 		}
 
 		/// <summary>
