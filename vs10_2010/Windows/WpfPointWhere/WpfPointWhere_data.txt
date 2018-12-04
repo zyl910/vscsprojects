@@ -1,0 +1,225 @@
+﻿# WpfPointWhere_data
+
+## Test data
+
+### 1366x768, 100%
+
+#### Win10
+
+```
+[Window]
+RestoreBounds: 78,78,959,555
+Left: 78
+Top: 78
+Width: 959
+Width: 555
+ActualWidth: 959
+ActualHeight: 555
+
+[grdRoot]
+Width: NaN
+Width: NaN
+ActualWidth: 943
+ActualHeight: 516
+DesiredSize: 774,516
+RenderSize: 943,516
+ToScreen: 86,109,943,516
+
+[grdMain]
+Width: 600
+Width: 400
+ActualWidth: 600
+ActualHeight: 400
+DesiredSize: 600,400
+RenderSize: 600,400
+ToScreen: 171,109,774,516
+
+[SystemParameters]
+VirtualScreenLeft: 0
+VirtualScreenTop: 0
+VirtualScreenWidth: 1366
+VirtualScreenHeight: 768
+PrimaryScreenWidth: 1366
+PrimaryScreenHeight: 768
+FullPrimaryScreenWidth: 1279
+FullPrimaryScreenHeight: 745
+WorkArea: 0,0,1279,768
+
+[Screens]
+Screen[Bounds={X=0,Y=0,Width=1366,Height=768} WorkingArea={X=0,Y=0,Width=1279,Height=768} Primary=True DeviceName=\\.\DISPLAY1
+
+[Graphics]
+DpiX: 96
+DpiY: 96
+VisibleClipBounds: {X=0,Y=0,Width=1366,Height=768}
+
+[CompositionTarget]
+dpiX: 96
+dpiY: 96
+```
+
+### 1366x768, 125%
+
+#### Win10, dpiAware=False
+
+```
+[Window]
+RestoreBounds: 26,26,755,440
+Left: 26
+Top: 26
+Width: 755
+Width: 440
+ActualWidth: 755
+ActualHeight: 440
+
+[grdRoot]
+Width: NaN
+Width: NaN
+ActualWidth: 739
+ActualHeight: 401
+DesiredSize: 601.5,401
+RenderSize: 739,401
+ToScreen: 34,57,739,401
+
+[grdMain]
+Width: 600
+Width: 400
+ActualWidth: 600
+ActualHeight: 400
+DesiredSize: 600,400
+RenderSize: 600,400
+ToScreen: 103,57,601,401
+
+[SystemParameters]
+VirtualScreenLeft: 0
+VirtualScreenTop: 0
+VirtualScreenWidth: 1093
+VirtualScreenHeight: 614
+PrimaryScreenWidth: 1093
+PrimaryScreenHeight: 614
+FullPrimaryScreenWidth: 1006
+FullPrimaryScreenHeight: 591
+WorkArea: 0,0,1006,614
+
+[Screens]
+Screen[Bounds={X=0,Y=0,Width=1093,Height=614} WorkingArea={X=0,Y=0,Width=1006,Height=614} Primary=True DeviceName=\\.\DISPLAY1
+
+[Graphics]
+DpiX: 96
+DpiY: 96
+VisibleClipBounds: {X=0,Y=0,Width=1093,Height=614}
+
+[CompositionTarget]
+dpiX: 96
+dpiY: 96
+```
+
+#### Win10, dpiAware=True
+
+```
+[Window]
+RestoreBounds: 104,104,755,440
+Left: 104
+Top: 104
+Width: 755
+Width: 440
+ActualWidth: 755
+ActualHeight: 440
+
+[grdRoot]
+Width: NaN
+Width: NaN
+ActualWidth: 739
+ActualHeight: 401
+DesiredSize: 601.5,401
+RenderSize: 739,401
+ToScreen: 112,135,739,401
+
+[grdMain]
+Width: 600
+Width: 400
+ActualWidth: 600
+ActualHeight: 400
+DesiredSize: 600,400
+RenderSize: 600,400
+ToScreen: 181,135,601,401
+
+[SystemParameters]
+VirtualScreenLeft: 0
+VirtualScreenTop: 0
+VirtualScreenWidth: 1093
+VirtualScreenHeight: 614
+PrimaryScreenWidth: 1093
+PrimaryScreenHeight: 614
+FullPrimaryScreenWidth: 1006
+FullPrimaryScreenHeight: 591
+WorkArea: 0,0,1006,614
+
+[Screens]
+Screen[Bounds={X=0,Y=0,Width=1093,Height=614} WorkingArea={X=0,Y=0,Width=1006,Height=614} Primary=True DeviceName=\\.\DISPLAY1
+
+[Graphics]
+DpiX: 96
+DpiY: 96
+VisibleClipBounds: {X=0,Y=0,Width=1093,Height=614}
+
+[CompositionTarget]
+dpiX: 96
+dpiY: 96
+
+```
+
+#### Win10, dpiAware=Per-monitor
+
+```
+[Window]
+RestoreBounds: 104,104,755,440
+Left: 104
+Top: 104
+Width: 755
+Width: 440
+ActualWidth: 755
+ActualHeight: 440
+
+[grdRoot]
+Width: NaN
+Width: NaN
+ActualWidth: 739
+ActualHeight: 401
+DesiredSize: 601.5,401
+RenderSize: 739,401
+ToScreen: 112,135,739,401
+
+[grdMain]
+Width: 600
+Width: 400
+ActualWidth: 600
+ActualHeight: 400
+DesiredSize: 600,400
+RenderSize: 600,400
+ToScreen: 181,135,601,401
+
+[SystemParameters]
+VirtualScreenLeft: 0
+VirtualScreenTop: 0
+VirtualScreenWidth: 1093
+VirtualScreenHeight: 614
+PrimaryScreenWidth: 1093
+PrimaryScreenHeight: 614
+FullPrimaryScreenWidth: 1006
+FullPrimaryScreenHeight: 591
+WorkArea: 0,0,1006,614
+
+[Screens]
+Screen[Bounds={X=0,Y=0,Width=1093,Height=614} WorkingArea={X=0,Y=0,Width=1006,Height=614} Primary=True DeviceName=\\.\DISPLAY1
+
+[Graphics]
+DpiX: 96
+DpiY: 96
+VisibleClipBounds: {X=0,Y=0,Width=1093,Height=614}
+
+[CompositionTarget]
+dpiX: 96
+dpiY: 96
+
+```

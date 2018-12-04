@@ -49,12 +49,31 @@ namespace WpfPointWhere {
 			//tw.WriteLine(string.Format("MinimumWindowTrackWidth: {0}", SystemParameters.MinimumWindowWidth));
 			tw.WriteLine(string.Format("WorkArea: {0}", SystemParameters.WorkArea));
 			tw.WriteLine();
+			// Screens
 			tw.WriteLine("[Screens]");
 			System.Windows.Forms.Screen[] screens = System.Windows.Forms.Screen.AllScreens;
 			foreach (System.Windows.Forms.Screen screen in screens) {
 				tw.WriteLine(screen);
 			}
 			tw.WriteLine();
+			// Graphics.
+			tw.WriteLine("[Graphics]");
+			using (System.Drawing.Graphics graphics = System.Drawing.Graphics.FromHwnd(IntPtr.Zero)) {
+				tw.WriteLine(string.Format("DpiX: {0}", graphics.DpiX));
+				tw.WriteLine(string.Format("DpiY: {0}", graphics.DpiY));
+				tw.WriteLine(string.Format("VisibleClipBounds: {0}", graphics.VisibleClipBounds));
+				tw.WriteLine();
+			}
+			// CompositionTarget.
+			PresentationSource source = PresentationSource.FromVisual(this);
+			if (null != source && null != source.CompositionTarget) {
+				tw.WriteLine("[CompositionTarget]");
+				double dpiX = 96.0 * source.CompositionTarget.TransformToDevice.M11;
+				double dpiY = 96.0 * source.CompositionTarget.TransformToDevice.M22;
+				tw.WriteLine(string.Format("dpiX: {0}", dpiY));
+				tw.WriteLine(string.Format("dpiY: {0}", dpiY));
+				tw.WriteLine();
+			}
 		}
 
 		/// <summary>
