@@ -14,7 +14,7 @@ namespace WpfLocalizationDemo {
 	/// </summary>
 	public class ApplicationResources : INotifyPropertyChanged {
 		private static ApplicationResources current;
-		private static Labels lables;
+		private Labels lables;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -28,9 +28,9 @@ namespace WpfLocalizationDemo {
 			set { ApplicationResources.current = value; }
 		}
 
-		public static Labels Labels {
-			get { return ApplicationResources.lables; }
-			set { ApplicationResources.lables = value; }
+		public Labels Labels {
+			get { return lables; }
+			set { lables = value; }
 		}
 
 		protected virtual void RaisePropertyChanged(string propertyName = null) {
@@ -44,7 +44,7 @@ namespace WpfLocalizationDemo {
 			Labels.Culture = cultureInfo;
 			Thread.CurrentThread.CurrentUICulture = cultureInfo;
 			Thread.CurrentThread.CurrentCulture = cultureInfo;
-			RaisePropertyChanged("");
+			RaisePropertyChanged("Labels");
 		}
 
 	}
