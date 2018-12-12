@@ -15,7 +15,7 @@
 				<ComboBoxItem Content="de" />
 				<ComboBoxItem Content="fr" />
 			</ComboBox>
-			<Label Content="_Date:" />
+			<Label Content="{Binding Labels.MainWindow_lblDate, Source={StaticResource R}}" />
 			<TextBox Name="txtDate" Width="200" />
 			<DatePicker Name="dptDate" />
 		</WrapPanel>
