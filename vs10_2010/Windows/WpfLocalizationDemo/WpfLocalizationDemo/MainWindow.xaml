@@ -8,10 +8,12 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<WrapPanel Orientation="Horizontal">
-			<Label Content="_Language:" />
+			<Label Name="lblLanguage" Content="_Language:" />
 			<ComboBox Name="cboLang" SelectionChanged="cboLang_SelectionChanged" IsReadOnly="True" IsEditable="True" SelectedValuePath="Content">
-				<ComboBoxItem Content="zh-cn" />
 				<ComboBoxItem Content="en-us" />
+				<ComboBoxItem Content="zh-cn" />
+				<ComboBoxItem Content="de" />
+				<ComboBoxItem Content="fr" />
 			</ComboBox>
 			<Label Content="_Date:" />
 			<TextBox Name="txtDate" Width="200" />

@@ -47,6 +47,9 @@ namespace WpfLocalizationDemo {
 				//clnDate.Language = xmlLanguage;	// 无效.
 				// http://www.cnblogs.com/wangnmhb/p/4078663.html
 				//FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata(xmlLanguage));	// 对界面没影响，且只能调一次，再次调用会报异常—— System.ArgumentException: PropertyMetadata 已经为类型“FrameworkElement”注册。
+				// ui
+				WpfLocalizationDemo.Properties.Resources.Culture = cultureInfo;
+				lblLanguage.Content = WpfLocalizationDemo.Properties.Resources.MainWindow_lblLanguage;
 			} catch (Exception ex) {
 				Debug.WriteLine(ex);
 			}

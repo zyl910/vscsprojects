@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MainWindow_lblLanguage" xml:space="preserve">
-    <value>_Language:</value>
+    <value>语言(_L):</value>
     <comment>主窗口_语言标签</comment>
   </data>
 </root>
