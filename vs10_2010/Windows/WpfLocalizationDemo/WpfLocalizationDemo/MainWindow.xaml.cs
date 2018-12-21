@@ -61,8 +61,12 @@ namespace WpfLocalizationDemo {
 		private void btnTest_Click(object sender, RoutedEventArgs e) {
 			Debug.WriteLine(wfCalendar.Width);
 			Debug.WriteLine(wfCalendar.Height);
-			Debug.WriteLine(wfiCalendar.ActualWidth);
-			Debug.WriteLine(wfiCalendar.ActualHeight);
+			Debug.WriteLine(brdCalendar.ActualWidth);
+			Debug.WriteLine(brdCalendar.ActualHeight);
+			float f = (float)(brdCalendar.ActualHeight / 195);
+			if (f < 1) f = 1;
+			System.Drawing.SizeF szf = new System.Drawing.SizeF(f, f);
+			wfCalendar.Scale(szf);
 		}
 	}
 }

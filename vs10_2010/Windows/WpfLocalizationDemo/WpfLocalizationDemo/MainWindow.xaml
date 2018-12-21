@@ -27,13 +27,11 @@
 				<Calendar Grid.Row="1" Name="clnDate" FontSize="20" />
 			</TabItem>
 			<TabItem Header="winform">
-				<Viewbox Stretch="Uniform" >
-					<Canvas Width="190" Height="190">
-						<wfi:WindowsFormsHost x:Name="wfiCalendar" Canvas.Left="0" Canvas.Top="0">
-							<wf:MonthCalendar x:Name="wfCalendar" />
-						</wfi:WindowsFormsHost>
-					</Canvas>
-				</Viewbox>
+				<Border x:Name="brdCalendar">
+					<wfi:WindowsFormsHost x:Name="wfiCalendar" Canvas.Left="0" Canvas.Top="0">
+						<wf:MonthCalendar x:Name="wfCalendar" />
+					</wfi:WindowsFormsHost>
+				</Border>
 			</TabItem>
 		</TabControl>
 	</Grid>
