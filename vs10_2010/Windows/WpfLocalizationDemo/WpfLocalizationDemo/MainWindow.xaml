@@ -28,7 +28,7 @@
 			</TabItem>
 			<TabItem Header="winform">
 				<Border x:Name="brdCalendar">
-					<wfi:WindowsFormsHost x:Name="wfiCalendar" Canvas.Left="0" Canvas.Top="0">
+					<wfi:WindowsFormsHost x:Name="wfiCalendar" Width="300" Height="200" >
 						<wf:MonthCalendar x:Name="wfCalendar" />
 					</wfi:WindowsFormsHost>
 				</Border>

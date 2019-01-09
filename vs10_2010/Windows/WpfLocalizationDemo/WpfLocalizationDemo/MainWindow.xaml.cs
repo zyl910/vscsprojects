@@ -67,6 +67,8 @@ namespace WpfLocalizationDemo {
 			if (f < 1) f = 1;
 			System.Drawing.SizeF szf = new System.Drawing.SizeF(f, f);
 			wfCalendar.Scale(szf);
+			//
+			//wfCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
 		}
 	}
 }
