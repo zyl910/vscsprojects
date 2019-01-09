@@ -30,7 +30,7 @@ ProcessorArchitecture=Amd64
   System.Reflection.AssemblyInformationalVersionAttribute       // 4.7.3260.0
 ```
 
-### .NET4.0 app, .NET4.0 dll, dll version 1.0
+### .NET4.0 app, .NET4.0 dll, dll version 1.1
 
 ```
 
