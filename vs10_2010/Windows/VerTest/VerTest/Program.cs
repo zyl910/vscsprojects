@@ -10,6 +10,7 @@ namespace VerTest {
 		static void Main(string[] args) {
 			TextWriter twer = Console.Out;
 			//typeof(Program).Assembly
+			VerLibUtil.OutputBase(twer);
 			VerLibUtil.OutputAssembly(twer, typeof(Program).Assembly);
 			VerLibUtil.OutputAssembly(twer, typeof(VerLibUtil).Assembly);
 			VerLibUtil.OutputAssembly(twer, typeof(String).Assembly);
