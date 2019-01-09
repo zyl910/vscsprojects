@@ -10,10 +10,18 @@ namespace VerLib {
 	/// </summary>
 	public class VerLibUtil {
 
-		//public static Version GetVersion() {
-		//    Version rt = null;
-		//    return rt;
-		//}
+		/// <summary>
+		/// 输出基本信息.
+		/// </summary>
+		/// <param name="twer">文本输出者.</param>
+		public static void OutputBase(System.IO.TextWriter twer) {
+			twer.WriteLine("[Base]");
+			//twer.WriteLine(string.Format("ImageRuntimeVersion={0}", typeof(VerLibUtil).Assembly.ImageRuntimeVersion));
+			twer.WriteLine(string.Format("OSVersion={0}", Environment.OSVersion));
+			twer.WriteLine(string.Format("Is64BitOperatingSystem={0}", Environment.Is64BitOperatingSystem));
+			twer.WriteLine(string.Format("Is64BitProcess={0}", Environment.Is64BitProcess));
+			twer.WriteLine();
+		}
 
 		/// <summary>
 		/// 输出程序集信息.

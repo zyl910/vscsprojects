@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerTest", "VerTest\VerTest.csproj", "{E641CB6E-FD68-40C0-8AE5-C8E88D393DAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerLib", "..\..\..\..\..\..\..\zhouyuelin\20180904_智慧大厅\自助机\VerTest\VerLib\VerLib.csproj", "{F704FADD-4B47-481F-B6A2-9F276972534D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerLib", "VerLib\VerLib.csproj", "{F704FADD-4B47-481F-B6A2-9F276972534D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

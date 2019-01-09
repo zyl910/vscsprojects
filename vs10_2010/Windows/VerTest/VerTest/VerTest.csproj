@@ -64,7 +64,7 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\..\zhouyuelin\20180904_智慧大厅\自助机\VerTest\VerLib\VerLib.csproj">
+    <ProjectReference Include="..\VerLib\VerLib.csproj">
       <Project>{F704FADD-4B47-481F-B6A2-9F276972534D}</Project>
       <Name>VerLib</Name>
     </ProjectReference>
