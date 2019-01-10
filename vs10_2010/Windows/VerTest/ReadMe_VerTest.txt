@@ -53,8 +53,8 @@ FullName=VerLib, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null
 ImageRuntimeVersion=v4.0.30319
 Location=E:\zylSelf\Code\cs\vscsprojects\vs10_2010\Windows\VerTest\bin\test02\VerLib.dll
 ProcessorArchitecture=MSIL
-  System.Reflection.AssemblyInformationalVersionAttribute       // 1.1.2019.0
   System.Reflection.AssemblyFileVersionAttribute        // 1.1.2019.109
+  System.Reflection.AssemblyInformationalVersionAttribute       // 1.1.2019.0 (2019-01-09)
 
 [mscorlib]
 FullName=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

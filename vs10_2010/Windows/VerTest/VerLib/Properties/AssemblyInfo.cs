@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 // 方法是按如下所示使用“*”:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyInformationalVersion("1.1.2019.0")]
-[assembly: AssemblyFileVersion("1.1.2019.109")]
+[assembly: AssemblyFileVersion("1.1.2019.109")]	// .NET的特性支持 "1.1.2019.109 (2019-01-09)", 但对于资源里的文件版本信息仅支持版本号部分（1.1.2019.109）.
+[assembly: AssemblyInformationalVersion("1.1.2019.0 (2019-01-09)")]
