@@ -50,6 +50,7 @@ Use for (用于)——
 * `WindowsFormsApplication1`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll`
 * `WpfApplication1`: Allow unsafe. `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll`
 * `WpfPointWhere`: Wpf point where (Wpf坐标转换).
+* `TestClickOnce`: Test ClickOnce (测试ClickOnce部署).
 
 #### Silverlight
 
