@@ -107,7 +107,7 @@ UpgradeLog*.XML
 
 *.pidb
 *.userprefs
-*.pfx
+# *.pfx
 project*.lock.json
 .vs
 AssemblyVer.cs
