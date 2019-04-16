@@ -185,6 +185,7 @@ Use for (用于)——
 
 * `ConsoleApp1`: ASP.NET Core Web Application, .NET Core 1.1. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\microsoft.netcore.app\1.1.2`
 * `WebMvc20`: ASP.NET Core Web Application, Web Application(Model-View-Controller), .NET Core 2.0. Allow unsafe.
+* `WebReact20`: ASP.NET Core Web Application, React.js, .NET Core 2.0. Allow unsafe.
 
 #### Xamarin
 
