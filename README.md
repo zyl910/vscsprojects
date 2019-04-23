@@ -187,6 +187,7 @@ Use for (用于)——
 * `WebMvc20`: ASP.NET Core Web Application, Web Application(Model-View-Controller), .NET Core 2.0. Allow unsafe.
 * `WebRazor20`: ASP.NET Core Web Application, Web Application (Razor), .NET Core 2.0. Allow unsafe.
 * `WebReact20`: ASP.NET Core Web Application, React.js, .NET Core 2.0. Allow unsafe.
+* `WebApi20`: ASP.NET Core Web Application, Web API, .NET Core 2.0. Allow unsafe.
 
 #### Xamarin
 
