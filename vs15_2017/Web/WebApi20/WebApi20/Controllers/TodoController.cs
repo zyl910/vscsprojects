@@ -8,6 +8,7 @@ using WebApi20.Models;
 
 namespace WebApi20.Controllers
 {
+	[Produces("application/json")]
 	[Route("api/[controller]")]
 	//[ApiController]
 	public class TodoController : Controller {
@@ -43,6 +44,27 @@ namespace WebApi20.Controllers
 		}
 
 		// POST: api/Todo
+		/// <summary>
+		/// Creates a TodoItem.
+		/// </summary>
+		/// <remarks>
+		/// Sample request:
+		///
+		///     POST /Todo
+		///     {
+		///        "id": 1,
+		///        "name": "Item1",
+		///        "isComplete": true
+		///     }
+		///
+		/// </remarks>
+		/// <param name="item">Item</param>
+		/// <returns>A newly created TodoItem</returns>
+		/// <response code="201">Returns the newly created item</response>
+		/// <response code="400">If the item is null</response>            
+		[HttpPost]
+		[ProducesResponseType(201)]
+		[ProducesResponseType(400)]
 		[HttpPost]
 		public async Task<IActionResult> PostTodoItem(TodoItem item) {
 			_context.TodoItems.Add(item);
@@ -65,6 +87,10 @@ namespace WebApi20.Controllers
 		}
 
 		// DELETE: api/Todo/5
+		/// <summary>
+		/// Deletes a specific TodoItem.
+		/// </summary>
+		/// <param name="id">ID</param>   
 		[HttpDelete("{id}")]
 		public async Task<IActionResult> DeleteTodoItem(long id) {
 			var todoItem = await _context.TodoItems.FindAsync(id);
