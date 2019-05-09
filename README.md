@@ -225,3 +225,7 @@ Use for (用于)——
 
 * `ClassLibrary20`: .NET Standard 2.0 ClassLibrary. Allow unsafe. `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\mscorlib.dll`, `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\netstandard.dll`
 
+#### .NET Core
+
+* `ConsoleApp22`: .NETCoreApp 2.2 Console. Allow unsafe. `C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.2.0\ref\netcoreapp2.2\System.Console.dll`
+
