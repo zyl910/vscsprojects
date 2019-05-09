@@ -233,4 +233,5 @@ Use for (用于)——
 
 * `WebMvc22`: ASP.NET Core Web Application, Web Application(Model-View-Controller), .NET Core 2.2. Allow unsafe.
 * `WebRazor22`: ASP.NET Core Web Application, Web Application (Razor), .NET Core 2.2. Allow unsafe.
+	* `WebRazor22`: Razor Class Library, Web Application (Razor), .NET Standard 2.0. Allow unsafe.
 
