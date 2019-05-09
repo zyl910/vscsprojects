@@ -189,6 +189,7 @@ Use for (用于)——
 * `WebReact20`: ASP.NET Core Web Application, React.js, .NET Core 2.0. Allow unsafe.
 * `WebApi20`: ASP.NET Core Web Application, Web API, .NET Core 2.0. Allow unsafe.
 * `WebApi20Windows`: ASP.NET Core Web Application, Web API, Windows Authentication, .NET Core 2.0. Allow unsafe.
+* `WebMvc20Windows`: ASP.NET Core Web Application, Web Application(Model-View-Controller), Windows Authentication, .NET Core 2.0. Allow unsafe.
 
 
 #### Xamarin
@@ -217,4 +218,10 @@ Use for (用于)——
 * `ClassLibrary1`: tvOS ClassLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.TVOS\v1.0\System.dll`
 * `BindingsLibrary1`: tvOS BindingLibrary. Allow unsafe. `C:\VS2017\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.TVOS\v1.0\System.dll`
 
+
+### vs16_2019
+
+#### NStd
+
+* `ClassLibrary20`: .NET Standard 2.0 ClassLibrary. Allow unsafe. `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\mscorlib.dll`, `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\netstandard.dll`
 
