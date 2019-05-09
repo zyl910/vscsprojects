@@ -229,3 +229,7 @@ Use for (用于)——
 
 * `ConsoleApp22`: .NETCoreApp 2.2 Console. Allow unsafe. `C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.2.0\ref\netcoreapp2.2\System.Console.dll`
 
+#### Web
+
+* `WebMvc22`: ASP.NET Core Web Application, Web Application(Model-View-Controller), .NET Core 2.2. Allow unsafe.
+
