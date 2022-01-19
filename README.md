@@ -81,6 +81,10 @@ Use for (用于)——
 
 ### vs14_2015
 
+.Net Core项目使用xpro后缀名.
+csproj等项目文件里，不再逐个的描述文件清单，而是自动引用目录下的所有文件。导致难以添加其他目录的源代码.
+出现project.json，用于描述项目配置.
+
 * `LibSharedUtil_2015`: Shared Project
 
 #### Windows
@@ -92,6 +96,8 @@ Use for (用于)——
 
 * `ClassLibrary1`: .NET Standard 1.0 ClassLibrary. Disabled unsafe by 1.0 . `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.1\ref\netstandard1.0\mscorlib.dll`
 * `ClassLibrary11`: .NET Standard 1.1 ClassLibrary. Allow unsafe by 1.1+ . `C:\Users\dssdw10\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.1\ref\netstandard1.0\mscorlib.dll`
+
+注：vs14_2015 最高支持 .NET Standard 1.5 ClassLibrary
 
 #### Xamarin
 
@@ -162,6 +168,9 @@ Use for (用于)——
 
 ### vs15_2017
 
+.Net Core项目也统一使用csproj后缀名. xpro 已废弃.
+project.json已弱化. 绝大多数功能已整合到csproj. 仅UWP等少量项目仍在用 project.json .
+
 * `LibSharedUtil_2017`: Shared Project
 
 #### Windows
@@ -173,6 +182,8 @@ Use for (用于)——
 
 * `ClassLibrary1`: .NET Standard 1.0 ClassLibrary. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\netstandard.library\1.6.1`
 * `ClassLibrary20`: .NET Standard 2.0 ClassLibrary. Allow unsafe. `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\mscorlib.dll`, `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\netstandard.dll`
+
+注：vs15_2017 最高支持 .NET Standard 2.0 ClassLibrary
 
 #### .NET Core
 
@@ -221,9 +232,13 @@ Use for (用于)——
 
 ### vs16_2019
 
+默认不使用project.json。
+
 #### NStd
 
 * `ClassLibrary20`: .NET Standard 2.0 ClassLibrary. Allow unsafe. `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\mscorlib.dll`, `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\netstandard.dll`
+
+注：vs16_2019 最高支持 .NET Standard 2.1 ClassLibrary
 
 #### .NET Core
 
