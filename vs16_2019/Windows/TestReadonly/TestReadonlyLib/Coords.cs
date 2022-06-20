@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace TestReadonlyLib {
+    /// <summary>
+    /// Coords
+    /// </summary>
+    /// <remarks>https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/builtin-types/struct#readonly-struct</remarks>
     public readonly struct Coords {
         public Coords(double x, double y) {
             X = x;
@@ -10,7 +14,7 @@ namespace TestReadonlyLib {
         }
 
         public double GetLength() {
-            return (X * X) + (Y * Y);
+            return Math.Sqrt((X * X) + (Y * Y));
         }
 
         public double X { get; }
