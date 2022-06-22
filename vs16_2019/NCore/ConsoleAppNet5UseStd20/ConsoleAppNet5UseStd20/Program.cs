@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibSysInfo;
+using System;
+using System.IO;
 using TestReadonlyLib;
 
 namespace ConsoleAppNet5UseStd20 {
@@ -8,6 +10,10 @@ namespace ConsoleAppNet5UseStd20 {
             TestCoords();
             TestVector2();
             TestProductDescription();
+            // LibSysInfo.
+            TextWriter writer = Console.Out;
+            writer.WriteLine();
+            SysInfoUtil.OutputAll(writer, "");
         }
 
         private static void TestCoords() {
