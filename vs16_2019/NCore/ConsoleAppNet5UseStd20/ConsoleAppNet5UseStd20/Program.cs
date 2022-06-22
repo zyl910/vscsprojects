@@ -14,6 +14,7 @@ namespace ConsoleAppNet5UseStd20 {
             TextWriter writer = Console.Out;
             writer.WriteLine();
             SysInfoUtil.OutputAll(writer, "");
+            writer.WriteLine("FrameworkDescription:\t" + System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription);
         }
 
         private static void TestCoords() {

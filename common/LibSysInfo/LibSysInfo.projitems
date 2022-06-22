@@ -9,6 +9,15 @@
     <Import_RootNamespace>LibSysInfo</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\BaseIndentedWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\IIndentedWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\IndentedWriterContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\IndentedWriterMemberEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\IndentedWriterObjectFunctor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\IndentedWriterUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\StringEscapeCMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SysInfoUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\TextIndentedWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Writer\TypeUtil.cs" />
   </ItemGroup>
 </Project>
