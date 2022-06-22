@@ -16,13 +16,50 @@ namespace LibSysInfo {
             "System.Half",
             "System.Math",
             "System.MathF",
+            "System.OperatingSystem",
             //"System.Runtime.InteropServices.RuntimeInformation",
-            "System.Numerics.Vector"
+            "System.Numerics.Vector",
+            "System.Runtime.Intrinsics.X86.Aes",
+            "System.Runtime.Intrinsics.X86.Aes.X64",
+            "System.Runtime.Intrinsics.X86.Avx",
+            "System.Runtime.Intrinsics.X86.Avx.X64",
+            "System.Runtime.Intrinsics.X86.Avx2",
+            "System.Runtime.Intrinsics.X86.Avx2.X64",
+            "System.Runtime.Intrinsics.X86.AvxVnni",
+            "System.Runtime.Intrinsics.X86.AvxVnni.X64",
+            "System.Runtime.Intrinsics.X86.Bmi1",
+            "System.Runtime.Intrinsics.X86.Bmi1.X64",
+            "System.Runtime.Intrinsics.X86.Bmi2",
+            "System.Runtime.Intrinsics.X86.Bmi2.X64",
+            "System.Runtime.Intrinsics.X86.Fma",
+            "System.Runtime.Intrinsics.X86.Fma.X64",
+            "System.Runtime.Intrinsics.X86.Lzcnt",
+            "System.Runtime.Intrinsics.X86.Lzcnt.X64",
+            "System.Runtime.Intrinsics.X86.Pclmulqdq",
+            "System.Runtime.Intrinsics.X86.Pclmulqdq.X64",
+            "System.Runtime.Intrinsics.X86.Popcnt",
+            "System.Runtime.Intrinsics.X86.Popcnt.X64",
+            "System.Runtime.Intrinsics.X86.Sse",
+            "System.Runtime.Intrinsics.X86.Sse.X64",
+            "System.Runtime.Intrinsics.X86.Sse2",
+            "System.Runtime.Intrinsics.X86.Sse2.X64",
+            "System.Runtime.Intrinsics.X86.Sse3",
+            "System.Runtime.Intrinsics.X86.Sse3.X64",
+            "System.Runtime.Intrinsics.X86.Sse41",
+            "System.Runtime.Intrinsics.X86.Sse41.X64",
+            "System.Runtime.Intrinsics.X86.Sse42",
+            "System.Runtime.Intrinsics.X86.Sse42.X64",
+            "System.Runtime.Intrinsics.X86.Ssse3",
+            "System.Runtime.Intrinsics.X86.Ssse3.X64",
+            "System.Runtime.Intrinsics.X86.X86Base",
+            "System.Runtime.Intrinsics.X86.X86Base.X64",
+
         };
         /// <summary>
         /// Others types. Use for GetType not supported.
         /// </summary>
         internal static readonly Type[] OtherTypes = {
+            typeof(System.Runtime.InteropServices.RuntimeEnvironment),
 #if (NETSTANDARD1_0) || (NET47||NET462||NET461||NET46||NET452||NET451||NET45||NET40||NET35||NET20)
 #else
             typeof(System.Runtime.InteropServices.RuntimeInformation),
