@@ -9,4 +9,6 @@
     <ProjectReference Include="..\TestReadonlyLib\TestReadonlyLib.csproj" />
   </ItemGroup>
 
+  <Import Project="..\..\..\..\common\LibSysInfo\LibSysInfo.projitems" Label="Shared" />
+
 </Project>

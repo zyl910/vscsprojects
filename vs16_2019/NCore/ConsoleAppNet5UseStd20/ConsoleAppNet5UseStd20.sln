@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppNet5UseStd20", "ConsoleAppNet5UseStd20\ConsoleAppNet5UseStd20.csproj", "{664397BC-225C-4EC8-A8F8-3F5E4F1BE009}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppNet5UseStd20", "ConsoleAppNet5UseStd20\ConsoleAppNet5UseStd20.csproj", "{664397BC-225C-4EC8-A8F8-3F5E4F1BE009}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestReadonlyLib", "TestReadonlyLib\TestReadonlyLib.csproj", "{43E4E0F5-0A89-4020-AE6E-B84BB323813B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestReadonlyLib", "TestReadonlyLib\TestReadonlyLib.csproj", "{43E4E0F5-0A89-4020-AE6E-B84BB323813B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LibSysInfo", "..\..\..\common\LibSysInfo\LibSysInfo.shproj", "{F7EA000D-2B0E-4179-A812-0098F671D919}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\common\LibSysInfo\LibSysInfo.projitems*{664397bc-225c-4ec8-a8f8-3f5e4f1be009}*SharedItemsImports = 5
+		..\..\..\common\LibSysInfo\LibSysInfo.projitems*{f7ea000d-2b0e-4179-a812-0098f671d919}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
