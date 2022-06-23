@@ -68,6 +68,282 @@ namespace LibSysInfo {
         };
 
         /// <summary>
+        /// Conditional compilation symbols
+        /// </summary>
+        /// <remarks>
+        /// <para>https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives</para>
+        /// <para>https://docs.microsoft.com/en-us/dotnet/standard/frameworks#how-to-specify-a-target-framework</para>
+        /// </remarks>
+        internal static readonly string[] ConditionalCompilations = {
+#if DEBUG
+    "DEBUG",
+#endif
+#if TRACE
+    "TRACE",
+#endif
+#if RELEASE
+    "RELEASE",
+#endif
+#if CODE_ANALYSIS
+    "CODE_ANALYSIS",
+#endif
+#if UNSAFE
+    "UNSAFE",
+#endif
+#if PORTABLE
+    "PORTABLE",
+#endif
+#if NETFX_CORE
+    "NETFX_CORE",
+#endif
+#if WINDOWS
+    "WINDOWS",
+#endif
+#if WINDOWS_APP
+    "WINDOWS_APP",
+#endif
+#if WINDOWS_PHONE
+    "WINDOWS_PHONE",
+#endif
+#if WINDOWS_PHONE_APP
+    "WINDOWS_PHONE_APP",
+#endif
+#if WINDOWS_UWP
+    "WINDOWS_UWP",
+#endif
+#if SILVERLIGHT
+    "SILVERLIGHT",
+#endif
+#if XBOX
+    "XBOX",
+#endif
+#if XBOX360
+    "XBOX360",
+#endif
+#if WindowsCE
+    "WindowsCE",
+#endif
+#if __UNIFIED__
+    "__UNIFIED__",
+#endif
+#if __MOBILE__
+    "__MOBILE__",
+#endif
+#if __IOS__
+    "__IOS__",
+#endif
+#if __TVOS__
+    "__TVOS__",
+#endif
+#if NUNIT
+    "NUNIT",
+#endif
+#if XUNIT
+    "XUNIT",
+#endif
+#if NETFRAMEWORK
+    "NETFRAMEWORK",
+#endif
+#if NET48
+    "NET48",
+#endif
+#if NET472
+    "NET472",
+#endif
+#if NET471
+    "NET471",
+#endif
+#if NET47
+    "NET47",
+#endif
+#if NET462
+    "NET462",
+#endif
+#if NET461
+    "NET461",
+#endif
+#if NET46
+    "NET46",
+#endif
+#if NET452
+    "NET452",
+#endif
+#if NET451
+    "NET451",
+#endif
+#if NET45
+    "NET45",
+#endif
+#if NET40
+    "NET40",
+#endif
+#if NET35
+    "NET35",
+#endif
+#if NET20
+    "NET20",
+#endif
+#if NET48_OR_GREATER
+    "NET48_OR_GREATER",
+#endif
+#if NET472_OR_GREATER
+    "NET472_OR_GREATER",
+#endif
+#if NET471_OR_GREATER
+    "NET471_OR_GREATER",
+#endif
+#if NET47_OR_GREATER
+    "NET47_OR_GREATER",
+#endif
+#if NET462_OR_GREATER
+    "NET462_OR_GREATER",
+#endif
+#if NET461_OR_GREATER
+    "NET461_OR_GREATER",
+#endif
+#if NET46_OR_GREATER
+    "NET46_OR_GREATER",
+#endif
+#if NET452_OR_GREATER
+    "NET452_OR_GREATER",
+#endif
+#if NET451_OR_GREATER
+    "NET451_OR_GREATER",
+#endif
+#if NET45_OR_GREATER
+    "NET45_OR_GREATER",
+#endif
+#if NET40_OR_GREATER
+    "NET40_OR_GREATER",
+#endif
+#if NET35_OR_GREATER
+    "NET35_OR_GREATER",
+#endif
+#if NET20_OR_GREATER
+    "NET20_OR_GREATER",
+#endif
+#if NETSTANDARD
+    "NETSTANDARD",
+#endif
+#if NETSTANDARD2_1
+    "NETSTANDARD2_1",
+#endif
+#if NETSTANDARD2_0
+    "NETSTANDARD2_0",
+#endif
+#if NETSTANDARD1_6
+    "NETSTANDARD1_6",
+#endif
+#if NETSTANDARD1_5
+    "NETSTANDARD1_5",
+#endif
+#if NETSTANDARD1_4
+    "NETSTANDARD1_4",
+#endif
+#if NETSTANDARD1_3
+    "NETSTANDARD1_3",
+#endif
+#if NETSTANDARD1_2
+    "NETSTANDARD1_2",
+#endif
+#if NETSTANDARD1_1
+    "NETSTANDARD1_1",
+#endif
+#if NETSTANDARD1_0
+    "NETSTANDARD1_0",
+#endif
+#if NETSTANDARD2_1_OR_GREATER
+    "NETSTANDARD2_1_OR_GREATER",
+#endif
+#if NETSTANDARD2_0_OR_GREATER
+    "NETSTANDARD2_0_OR_GREATER",
+#endif
+#if NETSTANDARD1_6_OR_GREATER
+    "NETSTANDARD1_6_OR_GREATER",
+#endif
+#if NETSTANDARD1_5_OR_GREATER
+    "NETSTANDARD1_5_OR_GREATER",
+#endif
+#if NETSTANDARD1_4_OR_GREATER
+    "NETSTANDARD1_4_OR_GREATER",
+#endif
+#if NETSTANDARD1_3_OR_GREATER
+    "NETSTANDARD1_3_OR_GREATER",
+#endif
+#if NETSTANDARD1_2_OR_GREATER
+    "NETSTANDARD1_2_OR_GREATER",
+#endif
+#if NETSTANDARD1_1_OR_GREATER
+    "NETSTANDARD1_1_OR_GREATER",
+#endif
+#if NETSTANDARD1_0_OR_GREATER
+    "NETSTANDARD1_0_OR_GREATER",
+#endif
+#if NET
+    "NET",
+#endif
+#if NET6_0
+    "NET6_0",
+#endif
+#if NET5_0
+    "NET5_0",
+#endif
+#if NETCOREAPP
+    "NETCOREAPP",
+#endif
+#if NETCOREAPP3_1
+    "NETCOREAPP3_1",
+#endif
+#if NETCOREAPP3_0
+    "NETCOREAPP3_0",
+#endif
+#if NETCOREAPP2_2
+    "NETCOREAPP2_2",
+#endif
+#if NETCOREAPP2_1
+    "NETCOREAPP2_1",
+#endif
+#if NETCOREAPP2_0
+    "NETCOREAPP2_0",
+#endif
+#if NETCOREAPP1_1
+    "NETCOREAPP1_1",
+#endif
+#if NETCOREAPP1_0
+    "NETCOREAPP1_0",
+#endif
+#if NET6_0_OR_GREATER
+    "NET6_0_OR_GREATER",
+#endif
+#if NET5_0_OR_GREATER
+    "NET5_0_OR_GREATER",
+#endif
+#if NETCOREAPP3_1_OR_GREATER
+    "NETCOREAPP3_1_OR_GREATER",
+#endif
+#if NETCOREAPP3_0_OR_GREATER
+    "NETCOREAPP3_0_OR_GREATER",
+#endif
+#if NETCOREAPP2_2_OR_GREATER
+    "NETCOREAPP2_2_OR_GREATER",
+#endif
+#if NETCOREAPP2_1_OR_GREATER
+    "NETCOREAPP2_1_OR_GREATER",
+#endif
+#if NETCOREAPP2_0_OR_GREATER
+    "NETCOREAPP2_0_OR_GREATER",
+#endif
+#if NETCOREAPP1_1_OR_GREATER
+    "NETCOREAPP1_1_OR_GREATER",
+#endif
+#if NETCOREAPP1_0_OR_GREATER
+    "NETCOREAPP1_0_OR_GREATER",
+#endif
+
+            null
+        };
+
+        /// <summary>
         /// Output all.
         /// </summary>
         /// <param name="iw">The IIndentedWriter.</param>
@@ -95,6 +371,14 @@ namespace LibSysInfo {
                 iw.WriteLine(tp.FullName + ":");
                 IndentedWriterUtil.WriteTypeStaticM(iw, tp, context);
             }
+            // ConditionalCompilations
+            iw.WriteLine("Conditional compilation symbols:");
+            iw.Indent(null);
+            foreach(string s in ConditionalCompilations) {
+                if (string.IsNullOrEmpty(s)) continue;
+                iw.WriteLine(s);
+            }
+            iw.Unindent();
         }
 
         /// <summary>
