@@ -6,4 +6,6 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <Import Project="..\..\..\..\common\LibSysInfo\LibSysInfo.projitems" Label="Shared" />
+
 </Project>

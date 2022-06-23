@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp31", "WinFormsApp31\WinFormsApp31.csproj", "{A3ED4DC3-9E36-4B12-B85F-9055CB3D9E60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp31", "WinFormsApp31\WinFormsApp31.csproj", "{A3ED4DC3-9E36-4B12-B85F-9055CB3D9E60}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LibSysInfo", "..\..\..\common\LibSysInfo\LibSysInfo.shproj", "{F7EA000D-2B0E-4179-A812-0098F671D919}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\common\LibSysInfo\LibSysInfo.projitems*{a3ed4dc3-9e36-4b12-b85f-9055cb3d9e60}*SharedItemsImports = 5
+		..\..\..\common\LibSysInfo\LibSysInfo.projitems*{f7ea000d-2b0e-4179-a812-0098f671d919}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
