@@ -244,6 +244,7 @@ project.json已弱化. 绝大多数功能已整合到csproj. 仅UWP等少量项�
 
 * `ConsoleApp22`: .NETCoreApp 2.2 Console. Allow unsafe. `C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.2.0\ref\netcoreapp2.2\System.Console.dll`
 * `ConsoleAppNet5UseStd20`: .NET5 Console, use .NET Standard 2.0 .
+* `WinFormsApp31`: WinForms used .NETCore 3.1 .
 
 #### Windows
 
