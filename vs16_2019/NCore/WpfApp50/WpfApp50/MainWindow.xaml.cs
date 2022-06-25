@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfLibrary1;
 
 namespace WpfApp50 {
     /// <summary>
@@ -34,6 +35,7 @@ namespace WpfApp50 {
             //strWriter.WriteLine("Test);
             TextIndentedWriter iw = new TextIndentedWriter(strWriter);
             SysInfoUtil.OutputAll(iw, null, null);
+            iw.WriteLine(string.Format("WpfInfo.FrameworkDescription:\t{0}", WpfInfo.FrameworkDescription));
             txtOutput.Text = strWriter.ToString();
         }
     }

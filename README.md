@@ -246,6 +246,7 @@ project.json已弱化. 绝大多数功能已整合到csproj. 仅UWP等少量项�
 * `ConsoleAppNet5UseStd20`: .NET5 Console, use .NET Standard 2.0 .
 * `WinFormsApp31`: WinForms used .NETCore 3.1 .
 * `WpfApp50`: WpfApplication used .NETCore 5.0 .
+  * `WpfLibrary1`: WPF Class Library, used .NETCore 5.0 .
 
 #### Windows
 
