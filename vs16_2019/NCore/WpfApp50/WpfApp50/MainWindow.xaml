@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp50"
         mc:Ignorable="d"
-        Title="WpfApp50" Height="450" Width="800">
+        Title="WpfApp50" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="4">
+            <Button x:Name="btnTest" Content="_Output" Margin="4" Click="btnTest_Click"/>
+        </StackPanel>
+        <TextBox x:Name="txtOutput" Grid.Row="1" Text="." TextWrapping="NoWrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
 
     </Grid>
 </Window>

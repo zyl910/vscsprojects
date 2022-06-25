@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp50", "WpfApp50\WpfApp50.csproj", "{AD9E4E5C-3EC7-42E0-BD56-A03B56C05D2D}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LibSysInfo", "..\..\..\common\LibSysInfo\LibSysInfo.shproj", "{F7EA000D-2B0E-4179-A812-0098F671D919}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\common\LibSysInfo\LibSysInfo.projitems*{ad9e4e5c-3ec7-42e0-bd56-a03b56c05d2d}*SharedItemsImports = 5
+		..\..\..\common\LibSysInfo\LibSysInfo.projitems*{f7ea000d-2b0e-4179-a812-0098f671d919}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

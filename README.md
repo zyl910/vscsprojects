@@ -251,6 +251,10 @@ project.json已弱化. 绝大多数功能已整合到csproj. 仅UWP等少量项�
 
 * `TestReadonly`: Test C# 7.2 readonly struct , `.NET Framework 4.6.1 use .NET Standard 2.0`.
 
+#### WinUI
+
+* `WinUIApp1`: `Blank App,Packaged (WinUl 3 in Desktop)` used `net5.0-windows10.0.19041.0` . 默认编译x86版, Debug目录有 183MB . A project template for creating a Desktop app based on the WindowsuI Library (Winul 3) along with a MSIX package for side-loading ordistribution via the Microsoft Store.
+
 #### Web
 
 * `WebMvc22`: ASP.NET Core Web Application, Web Application(Model-View-Controller), .NET Core 2.2. Allow unsafe.

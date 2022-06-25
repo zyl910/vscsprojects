@@ -6,4 +6,6 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <Import Project="..\..\..\..\common\LibSysInfo\LibSysInfo.projitems" Label="Shared" />
+
 </Project>
