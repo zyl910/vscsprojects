@@ -35,7 +35,14 @@ namespace WpfApp50 {
             //strWriter.WriteLine("Test);
             TextIndentedWriter iw = new TextIndentedWriter(strWriter);
             SysInfoUtil.OutputAll(iw, null, null);
-            iw.WriteLine(string.Format("WpfInfo.FrameworkDescription:\t{0}", WpfInfo.FrameworkDescription));
+            // WPF
+            bool showWpf = true;
+            if (showWpf) {
+                iw.WriteLine("== WPF ==");
+                iw.WriteLine(string.Format("WpfInfo.FrameworkDescription:\t{0}", WpfInfo.FrameworkDescription));
+                WpfInfo.OutputAll(strWriter);
+            }
+            // done.
             txtOutput.Text = strWriter.ToString();
         }
     }
