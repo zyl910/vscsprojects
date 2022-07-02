@@ -2,7 +2,6 @@
 using System.Collections.Immutable;
 using System.IO;
 using System.Reflection;
-using TestImmutableLib;
 
 namespace TestImmutable {
     class Program {
@@ -27,8 +26,8 @@ namespace TestImmutable {
             tw.WriteLine();
             ImmutableList<int> list = ImmutableList<int>.Empty.Add(10).Add(20).Add(30);
             OutputObject(tw, list);
-            ImmutableList<int> list2 = ImmutableLibUtil.MakeImmutable(tw);
-            OutputObject(tw, list2);
+            //ImmutableList<int> list2 = TestImmutableLib.ImmutableLibUtil.MakeImmutable(tw);
+            //OutputObject(tw, list2);
         }
     }
 }
