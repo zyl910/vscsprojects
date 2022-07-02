@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1778
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestImmutable", "TestImmutable\TestImmutable.csproj", "{DF03DDD2-D3B4-464B-940E-8EB69C97A01E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF03DDD2-D3B4-464B-940E-8EB69C97A01E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF03DDD2-D3B4-464B-940E-8EB69C97A01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF03DDD2-D3B4-464B-940E-8EB69C97A01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF03DDD2-D3B4-464B-940E-8EB69C97A01E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B899F1D-E2A2-4C36-9796-18AFC08DB98E}
+	EndGlobalSection
+EndGlobal
