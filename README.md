@@ -182,6 +182,7 @@ project.json已弱化. 绝大多数功能已整合到csproj. 仅UWP等少量项�
 
 * `ClassLibrary1`: .NET Standard 1.0 ClassLibrary. Allow unsafe. `C:\Users\dssdw10\.nuget\packages\netstandard.library\1.6.1`
 * `ClassLibrary20`: .NET Standard 2.0 ClassLibrary. Allow unsafe. `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\mscorlib.dll`, `C:\Users\dwin10\.nuget\packages\netstandard.library\2.0.0\build\netstandard2.0\ref\netstandard.dll`
+* `BenchmarkVector`: Benchmark Vector4 on .NET Standard 2.0 ClassLibrary.
 
 注：vs15_2017 最高支持 .NET Standard 2.0 ClassLibrary
 

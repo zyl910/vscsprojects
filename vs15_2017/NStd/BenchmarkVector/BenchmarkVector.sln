@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1778
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BenchmarkVector", "BenchmarkVector\BenchmarkVector.shproj", "{AACCECF2-B722-4658-A90A-775019AA8C3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkVectorCore20", "BenchmarkVectorCore20\BenchmarkVectorCore20.csproj", "{C835D9C9-A746-4B8E-8B7F-ECFFDB8CE2BA}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		BenchmarkVector\BenchmarkVector.projitems*{aaccecf2-b722-4658-a90a-775019aa8c3e}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C835D9C9-A746-4B8E-8B7F-ECFFDB8CE2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C835D9C9-A746-4B8E-8B7F-ECFFDB8CE2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C835D9C9-A746-4B8E-8B7F-ECFFDB8CE2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C835D9C9-A746-4B8E-8B7F-ECFFDB8CE2BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20C06528-6ED5-4D11-B11C-276C5D622479}
+	EndGlobalSection
+EndGlobal
