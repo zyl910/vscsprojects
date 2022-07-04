@@ -9,5 +9,6 @@
     <Import_RootNamespace>BenchmarkVector</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BenchmarkVectorDemo.cs" />
   </ItemGroup>
 </Project>
