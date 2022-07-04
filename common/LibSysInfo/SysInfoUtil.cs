@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using System.Text;
 
 namespace LibSysInfo {
@@ -371,6 +372,16 @@ namespace LibSysInfo {
                 iw.WriteLine(tp.FullName + ":");
                 IndentedWriterUtil.WriteTypeStaticM(iw, tp, context);
             }
+            // Vector<T>
+#if NET || NETCOREAPP || NETSTANDARD2_1_OR_GREATER
+            iw.WriteLine(string.Format("Vector.IsHardwareAccelerated:\t{0}", Vector.IsHardwareAccelerated));
+            iw.WriteLine(string.Format("Vector<byte>:\t{0}", Vector<byte>.Count));
+            iw.WriteLine(string.Format("Vector<Int16>:\t{0}", Vector<Int16>.Count));
+            iw.WriteLine(string.Format("Vector<Int32>:\t{0}", Vector<Int32>.Count));
+            iw.WriteLine(string.Format("Vector<Int64>:\t{0}", Vector<Int64>.Count));
+            iw.WriteLine(string.Format("Vector<float>:\t{0}", Vector<float>.Count));
+            iw.WriteLine(string.Format("Vector<double>:\t{0}", Vector<double>.Count));
+#endif
             // ConditionalCompilations
             iw.WriteLine("Conditional compilation symbols:");
             iw.Indent(null);
