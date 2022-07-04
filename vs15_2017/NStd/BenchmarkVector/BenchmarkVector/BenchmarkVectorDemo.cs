@@ -37,7 +37,10 @@ namespace BenchmarkVector {
             tw.WriteLine(indent + string.Format("Environment.Is64BitProcess:\t{0}", Environment.Is64BitProcess));
             tw.WriteLine(indent + string.Format("Environment.OSVersion:\t{0}", Environment.OSVersion));
             tw.WriteLine(indent + string.Format("Environment.Version:\t{0}", Environment.Version));
+#if (NET47 || NET462 || NET461 || NET46 || NET452 || NET451 || NET45 || NET40 || NET35 || NET20) || (NETSTANDARD1_0)
+#else
             tw.WriteLine(indent + string.Format("RuntimeInformation.FrameworkDescription:\t{0}", System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription));
+#endif
             tw.WriteLine(indent + string.Format("BitConverter.IsLittleEndian:\t{0}", BitConverter.IsLittleEndian));
             tw.WriteLine(indent + string.Format("IntPtr.Size:\t{0}", IntPtr.Size));
             tw.WriteLine(indent + string.Format("Vector.IsHardwareAccelerated:\t{0}", Vector.IsHardwareAccelerated));

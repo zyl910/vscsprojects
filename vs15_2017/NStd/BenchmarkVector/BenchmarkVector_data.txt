@@ -87,3 +87,55 @@ SumBase:        6.871948E+10    # msUsed=5250, MFLOPS/Second=780.190476190476
 SumVector4:     2.748779E+11    # msUsed=1297, MFLOPS/Second=3158.05705474171, scale=4.04780262143408
 SumVectorT:     5.497558E+11    # msUsed=641, MFLOPS/Second=6390.01560062402, scale=8.19032761310453
 ```
+
+### BenchmarkVectorFw45, Release, x64
+```
+BenchmarkVectorFw45
+
+IsRelease:      False
+EnvironmentVariable(PROCESSOR_IDENTIFIER):      Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+Environment.ProcessorCount:     8
+Environment.Is64BitOperatingSystem:     True
+Environment.Is64BitProcess:     True
+Environment.OSVersion:  Microsoft Windows NT 6.2.9200.0
+Environment.Version:    4.0.30319.42000
+BitConverter.IsLittleEndian:    True
+IntPtr.Size:    8
+Vector.IsHardwareAccelerated:   True
+Vector<byte>.Count:     32      # 256bit
+Vector<float>.Count:    8       # 256bit
+Vector<double>.Count:   4       # 256bit
+Vector4.Assembly:       System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Vector4.Assembly.CodeBase:      file:///E:/zylSelf/Code/cs/common/vscsprojects/vs15_2017/NStd/BenchmarkVector/BenchmarkVectorFw45/bin/Release/System.Numerics.Vectors.DLL
+
+Benchmark:      count=4096, loops=1048576, countMFlops=4096
+SumBase:        6.871948E+10    # msUsed=5219, MFLOPS/Second=784.824679057291
+SumVector4:     2.748779E+11    # msUsed=1296, MFLOPS/Second=3160.49382716049, scale=4.02700617283951
+SumVectorT:     5.497558E+11    # msUsed=657, MFLOPS/Second=6234.39878234399, scale=7.94368340943683
+```
+
+### BenchmarkVectorFw45, Release, x86
+```
+BenchmarkVectorFw45
+
+IsRelease:      False
+EnvironmentVariable(PROCESSOR_IDENTIFIER):      Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+Environment.ProcessorCount:     8
+Environment.Is64BitOperatingSystem:     True
+Environment.Is64BitProcess:     False
+Environment.OSVersion:  Microsoft Windows NT 6.2.9200.0
+Environment.Version:    4.0.30319.42000
+BitConverter.IsLittleEndian:    True
+IntPtr.Size:    4
+Vector.IsHardwareAccelerated:   False
+Vector<byte>.Count:     16      # 128bit
+Vector<float>.Count:    4       # 128bit
+Vector<double>.Count:   2       # 128bit
+Vector4.Assembly:       System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Vector4.Assembly.CodeBase:      file:///E:/zylSelf/Code/cs/common/vscsprojects/vs15_2017/NStd/BenchmarkVector/BenchmarkVectorFw45/bin/Release/System.Numerics.Vectors.DLL
+
+Benchmark:      count=4096, loops=1048576, countMFlops=4096
+SumBase:        8.793946E+12    # msUsed=4000, MFLOPS/Second=1024
+SumVector4:     2.748779E+11    # msUsed=3672, MFLOPS/Second=1115.46840958606, scale=1.08932461873638
+SumVectorT:     2.748779E+11    # msUsed=20203, MFLOPS/Second=202.7421670049, scale=0.197990397465723
+```
