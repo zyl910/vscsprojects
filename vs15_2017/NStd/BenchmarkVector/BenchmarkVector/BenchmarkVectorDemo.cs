@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
+using System.Reflection;
 using System.Text;
 
 namespace BenchmarkVector {
@@ -43,7 +44,9 @@ namespace BenchmarkVector {
             tw.WriteLine(indent + string.Format("Vector<byte>.Count:\t{0}\t# {1}bit", Vector<byte>.Count, Vector<byte>.Count * sizeof(byte) * 8));
             tw.WriteLine(indent + string.Format("Vector<float>.Count:\t{0}\t# {1}bit", Vector<float>.Count, Vector<float>.Count*sizeof(float)*8));
             tw.WriteLine(indent + string.Format("Vector<double>.Count:\t{0}\t# {1}bit", Vector<double>.Count, Vector<double>.Count * sizeof(double) * 8));
-            tw.WriteLine(indent);
+            Assembly assembly = typeof(Vector4).GetTypeInfo().Assembly;
+            tw.WriteLine(string.Format("Vector4.Assembly:\t{0}", assembly));
+            tw.WriteLine(string.Format("Vector4.Assembly.CodeBase:\t{0}", assembly.CodeBase));
         }
 
         /// <summary>
@@ -61,8 +64,9 @@ namespace BenchmarkVector {
             double scale;
             float rt;
             const int count = 1024*4;
-            const int loops = 1024*1024;
-            const double countMFlops = count * (double)loops / (1024.0 * 1024 * 1024);
+            const int loops = 1024 * 1024;
+            //const int loops = 1;
+            const double countMFlops = count * (double)loops / (1024.0 * 1024);
             float[] src = new float[count];
             for(int i=0; i< count; ++i) {
                 src[i] = i;
@@ -82,6 +86,13 @@ namespace BenchmarkVector {
             mFlops = countMFlops * 1000 / msUsed;
             scale = mFlops / mFlopsBase;
             tw.WriteLine(indent + string.Format("SumVector4:\t{0}\t# msUsed={1}, MFLOPS/Second={2}, scale={3}", rt, msUsed, mFlops, scale));
+            // SumVectorT.
+            tickBegin = Environment.TickCount;
+            rt = SumVectorT(src, count, loops);
+            msUsed = Environment.TickCount - tickBegin;
+            mFlops = countMFlops * 1000 / msUsed;
+            scale = mFlops / mFlopsBase;
+            tw.WriteLine(indent + string.Format("SumVectorT:\t{0}\t# msUsed={1}, MFLOPS/Second={2}, scale={3}", rt, msUsed, mFlops, scale));
         }
 
         /// <summary>
@@ -128,6 +139,40 @@ namespace BenchmarkVector {
             }
             // reduce.
             rt = vrt.X + vrt.Y + vrt.Z + vrt.W;
+            return rt;
+        }
+
+        /// <summary>
+        /// Sum - Vector<T>.
+        /// </summary>
+        /// <param name="src">Soure array.</param>
+        /// <param name="count">Soure array count.</param>
+        /// <param name="count">Benchmark loops.</param>
+        /// <returns>Return the sum value.</returns>
+        private static float SumVectorT(float[] src, int count, int loops) {
+            float rt = 0;
+            int VectorWidth = Vector<float>.Count;
+            if (0 != count % VectorWidth) throw new ArgumentException(string.Format("The count can't div {0}.", VectorWidth), "count");
+            int vcount = count / VectorWidth;
+            float[] dst = new float[VectorWidth];
+            Vector<float>[] vsrc = new Vector<float>[vcount];
+            int p = 0;
+            for (int i = 0; i < vcount; ++i) {
+                vsrc[i] = new Vector<float>(src, p);
+                p += VectorWidth;
+            }
+            // body.
+            Vector<float> vrt = Vector<float>.Zero;
+            for (int j = 0; j < loops; ++j) {
+                for (int i = 0; i < vcount; ++i) {
+                    vrt += vsrc[i];
+                }
+            }
+            // reduce.
+            vrt.CopyTo(dst);
+            for (int i = 0; i < dst.Length; ++i) {
+                rt += dst[i];
+            }
             return rt;
         }
     }
