@@ -151,6 +151,7 @@ Environment.Is64BitOperatingSystem:     True
 Environment.Is64BitProcess:     False
 Environment.OSVersion:  Microsoft Windows NT 6.2.9200.0
 Environment.Version:    4.0.30319.42000
+RuntimeEnvironment.GetRuntimeDirectory: C:\Windows\Microsoft.NET\Framework\v4.0.30319\
 BitConverter.IsLittleEndian:    True
 IntPtr.Size:    4
 Vector.IsHardwareAccelerated:   False
@@ -161,13 +162,13 @@ Vector4.Assembly:       System.Numerics, Version=4.0.0.0, Culture=neutral, Publi
 Vector4.Assembly.CodeBase:      file:///C:/WINDOWS/Microsoft.Net/assembly/GAC_MSIL/System.Numerics/v4.0_4.0.0.0__b77a5c561934e089/System.Numerics.dll
 Main-Vector4.Assembly.CodeBase: file:///C:/WINDOWS/Microsoft.Net/assembly/GAC_MSIL/System.Numerics/v4.0_4.0.0.0__b77a5c561934e089/System.Numerics.dll
 
-Benchmark:      count=4096, loops=1048576, countMFlops=4096
-SumBase:        8.793946E+12    # msUsed=3906, MFLOPS/Second=1048.64311315924
-SumVector4:     2.748779E+11    # msUsed=3687, MFLOPS/Second=1110.93029563331, scale=1.05939788445891
-SumVectorT:     2.748779E+11    # msUsed=20532, MFLOPS/Second=199.493473602182, scale=0.190239625949737
+Benchmark:      count=4096, loops=1000000, countMFlops=4096
+SumBase:        8.38656E+12     # msUsed=3750, MFLOPS/s=1092.26666666667
+SumVector4:     2.748779E+11    # msUsed=3469, MFLOPS/s=1180.74373018161, scale=1.08100317094263
+SumVectorT:     2.748779E+11    # msUsed=19766, MFLOPS/s=207.224526965496, scale=0.189719720732571
 ```
 
-### BenchmarkVectorFw45, Release, x64
+### BenchmarkVectorFw46, Release, x64
 ```
 BenchmarkVectorFw46
 
@@ -178,6 +179,7 @@ Environment.Is64BitOperatingSystem:     True
 Environment.Is64BitProcess:     True
 Environment.OSVersion:  Microsoft Windows NT 6.2.9200.0
 Environment.Version:    4.0.30319.42000
+RuntimeEnvironment.GetRuntimeDirectory: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\
 BitConverter.IsLittleEndian:    True
 IntPtr.Size:    8
 Vector.IsHardwareAccelerated:   True
@@ -188,8 +190,8 @@ Vector4.Assembly:       System.Numerics, Version=4.0.0.0, Culture=neutral, Publi
 Vector4.Assembly.CodeBase:      file:///C:/WINDOWS/Microsoft.Net/assembly/GAC_MSIL/System.Numerics/v4.0_4.0.0.0__b77a5c561934e089/System.Numerics.dll
 Main-Vector4.Assembly.CodeBase: file:///C:/WINDOWS/Microsoft.Net/assembly/GAC_MSIL/System.Numerics/v4.0_4.0.0.0__b77a5c561934e089/System.Numerics.dll
 
-Benchmark:      count=4096, loops=1048576, countMFlops=4096
-SumBase:        6.871948E+10    # msUsed=5219, MFLOPS/Second=784.824679057291
-SumVector4:     2.748779E+11    # msUsed=1297, MFLOPS/Second=3158.05705474171, scale=4.02390131071704
-SumVectorT:     5.497558E+11    # msUsed=656, MFLOPS/Second=6243.90243902439, scale=7.95579268292683
+Benchmark:      count=4096, loops=1000000, countMFlops=4096
+SumBase:        6.871948E+10    # msUsed=4985, MFLOPS/s=821.664994984955
+SumVector4:     2.748779E+11    # msUsed=1234, MFLOPS/s=3319.2868719611, scale=4.03970826580227
+SumVectorT:     5.497558E+11    # msUsed=625, MFLOPS/s=6553.6, scale=7.976
 ```

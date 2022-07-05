@@ -37,6 +37,8 @@ namespace BenchmarkVector {
             tw.WriteLine(indent + string.Format("Environment.Is64BitProcess:\t{0}", Environment.Is64BitProcess));
             tw.WriteLine(indent + string.Format("Environment.OSVersion:\t{0}", Environment.OSVersion));
             tw.WriteLine(indent + string.Format("Environment.Version:\t{0}", Environment.Version));
+            //tw.WriteLine(indent + string.Format("RuntimeEnvironment.GetSystemVersion:\t{0}", System.Runtime.InteropServices.RuntimeEnvironment.GetSystemVersion())); // Same Environment.Version
+            tw.WriteLine(indent + string.Format("RuntimeEnvironment.GetRuntimeDirectory:\t{0}", System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory()));
 #if (NET47 || NET462 || NET461 || NET46 || NET452 || NET451 || NET45 || NET40 || NET35 || NET20) || (NETSTANDARD1_0)
 #else
             tw.WriteLine(indent + string.Format("RuntimeInformation.FrameworkDescription:\t{0}", System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription));
@@ -63,13 +65,13 @@ namespace BenchmarkVector {
             //string indentNext = indent + "\t";
             // init.
             int tickBegin, msUsed;
-            double mFlops; // MFLOPS/Second .
+            double mFlops; // MFLOPS/s .
             double scale;
             float rt;
             const int count = 1024*4;
-            const int loops = 1024 * 1024;
+            const int loops = 1000 * 1000;
             //const int loops = 1;
-            const double countMFlops = count * (double)loops / (1024.0 * 1024);
+            const double countMFlops = count * (double)loops / (1000.0 * 1000);
             float[] src = new float[count];
             for(int i=0; i< count; ++i) {
                 src[i] = i;
@@ -80,7 +82,7 @@ namespace BenchmarkVector {
             rt = SumBase(src, count, loops);
             msUsed = Environment.TickCount - tickBegin;
             mFlops = countMFlops * 1000 / msUsed;
-            tw.WriteLine(indent + string.Format("SumBase:\t{0}\t# msUsed={1}, MFLOPS/Second={2}", rt, msUsed, mFlops));
+            tw.WriteLine(indent + string.Format("SumBase:\t{0}\t# msUsed={1}, MFLOPS/s={2}", rt, msUsed, mFlops));
             double mFlopsBase = mFlops;
             // SumVector4.
             tickBegin = Environment.TickCount;
@@ -88,14 +90,14 @@ namespace BenchmarkVector {
             msUsed = Environment.TickCount - tickBegin;
             mFlops = countMFlops * 1000 / msUsed;
             scale = mFlops / mFlopsBase;
-            tw.WriteLine(indent + string.Format("SumVector4:\t{0}\t# msUsed={1}, MFLOPS/Second={2}, scale={3}", rt, msUsed, mFlops, scale));
+            tw.WriteLine(indent + string.Format("SumVector4:\t{0}\t# msUsed={1}, MFLOPS/s={2}, scale={3}", rt, msUsed, mFlops, scale));
             // SumVectorT.
             tickBegin = Environment.TickCount;
             rt = SumVectorT(src, count, loops);
             msUsed = Environment.TickCount - tickBegin;
             mFlops = countMFlops * 1000 / msUsed;
             scale = mFlops / mFlopsBase;
-            tw.WriteLine(indent + string.Format("SumVectorT:\t{0}\t# msUsed={1}, MFLOPS/Second={2}, scale={3}", rt, msUsed, mFlops, scale));
+            tw.WriteLine(indent + string.Format("SumVectorT:\t{0}\t# msUsed={1}, MFLOPS/s={2}, scale={3}", rt, msUsed, mFlops, scale));
         }
 
         /// <summary>
