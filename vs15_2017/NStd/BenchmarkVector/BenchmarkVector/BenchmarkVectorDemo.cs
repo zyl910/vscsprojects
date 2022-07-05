@@ -14,10 +14,10 @@ namespace BenchmarkVector {
         /// Is release make.
         /// </summary>
         public static readonly bool IsRelease =
-#if RELEASE
-            true
-#else
+#if DEBUG
             false
+#else
+            true
 #endif
         ;
 
