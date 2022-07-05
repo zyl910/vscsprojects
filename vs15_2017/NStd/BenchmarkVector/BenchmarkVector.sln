@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkVectorFw45", "Benc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkVectorFw46", "BenchmarkVectorFw46\BenchmarkVectorFw46.csproj", "{0E99B640-2C08-44FC-AA8D-F85703CA33C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkVectorFw46UseLib", "BenchmarkVectorFw46UseLib\BenchmarkVectorFw46UseLib.csproj", "{374F7A90-602D-4D7F-B5C0-AD78003D36B1}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		BenchmarkVector\BenchmarkVector.projitems*{0e99b640-2c08-44fc-aa8d-f85703ca33c2}*SharedItemsImports = 4
@@ -46,6 +48,10 @@ Global
 		{0E99B640-2C08-44FC-AA8D-F85703CA33C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E99B640-2C08-44FC-AA8D-F85703CA33C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E99B640-2C08-44FC-AA8D-F85703CA33C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{374F7A90-602D-4D7F-B5C0-AD78003D36B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{374F7A90-602D-4D7F-B5C0-AD78003D36B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{374F7A90-602D-4D7F-B5C0-AD78003D36B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{374F7A90-602D-4D7F-B5C0-AD78003D36B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
